@@ -18,13 +18,14 @@ Route::get('/',['uses'=>'IndexController@index']);
 
 Route::get('/admin/visitante',['as'=>'admin.visitante', 'uses'=>'VisitanteController@index']);
 Route::get('/admin/condomino',['as'=>'admin.condomino', 'uses'=>'Admin\CondominoController@index']);
+Route::get('/admin/agenda',['as'=>'admin.agenda', 'uses'=>'VisitanteController@index']);
 
 Route::get('/admin/visitante/adicionar',['as'=>'admin.visitante.adicionar', 'uses'=>'VisitanteController@adicionar']);
-Route::get('/admin/condomino/adicionar',['as'=>'admin.condomino.adicionar', 'uses'=>'CondominoController@adicionar']);
+Route::get('/admin/condomino/adicionar',['as'=>'admin.condomino.adicionar', 'uses'=>'admin\CondominoController@adicionar']);
 Route::get('/admin/apartamento/adicionar',['as'=>'admin.aparatamento.adicionar', 'uses'=>'ApartamentoController@adicionar']);
 
 Route::post('/admin/visitante/salvar',['as'=>'admin.visitante.salvar', 'uses'=>'VisitanteController@salvar']);
-Route::post('/admin/condomino/salvar',['as'=>'admin.condomino.salvar', 'uses'=>'CondominoController@salvar']);
+Route::post('/admin/condomino/salvar',['as'=>'admin.condomino.salvar', 'uses'=>'admin\CondominoController@salvar']);
 
 Route::get('/admin/visitante/editar/{$id}',['as'=>'admin.visitante.editar', 'uses'=>'VisitanteController@editar']);
 Route::get('/admin/condomino/editar/{$id}',['as'=>'admin.condomino.editar', 'uses'=>'CondominoController@editar']);

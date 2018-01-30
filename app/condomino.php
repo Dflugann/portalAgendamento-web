@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class condomino extends Model
 {
   protected $fillable = [
-      'nome', 'sobrenome', 'cpf', 'imagem', 'conj', 'numapart', 'dtentrada', 'dtsaida'
+      'nome', 'sobrenome', 'cpf', 'tel', 'conj', 'numapart','imagem', 'email', 'password', 'status', 'update_at', 'created_at'
   ];
 }

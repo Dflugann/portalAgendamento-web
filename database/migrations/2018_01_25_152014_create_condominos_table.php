@@ -17,12 +17,14 @@ class CreateCondominosTable extends Migration
           $table->increments('id_condomino');
           $table->string('nome');
           $table->string('sobrenome');
-          $table->string('cpf');
-          $table->string('imagem');
+          $table->string('cpf', 11);
+          $table->string('tel', 11);
           $table->string('conj');
           $table->string('numapart');
-          $table->dateTime('dtentrada');
-          $table->dateTime('dtsaida');
+          $table->string('imagem');
+          $table->char('email', 150);
+          $table->char('password');
+          $table->enum('status',['sim','nao'])->default('nao');
           $table->timestamps();
         });
     }

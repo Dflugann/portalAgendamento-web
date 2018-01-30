@@ -12,9 +12,10 @@
             <th>Id</th>
             <th>Nome</th>
             <th>Sobrenome</th>
-            <th>imagem</th>
             <th>Conj/Torre</th>
             <th>Apartamento</th>
+            <th>imagem</th>
+            <th>Ativo</th>
             <th>Ação</th>
           </tr>
         </thead>
@@ -24,19 +25,27 @@
             <td>{{$registro->id_condomino}}</td>
             <td>{{$registro->nome}}</td>
             <td>{{$registro->sobrenome}}</td>
-            <td>{{$registro->imagem}}</td>
             <td>{{$registro->conj}}</td>
             <td>{{$registro->numapart}}</td>
             <td>
-              <a class="btn" href="{{route('admin.condomino.editar','$registro->id_condomino')}}">Editar</a>
-              <a class="btn red" href="{{route('admin.condomino.deletar','$registro->id_condomino')}}">Deletar</a>
+              <img width="150" height="150" src="{{asset($registro->imagem)}}" alt="$registro->nome">
+            </td>
+            <td style="{{isset($registro->status) && $registro->status == 'sim' ? 'color:#039be5' : 'color:red'}}">{{$registro->status}}</td>
+            <td>
+              <a href="{{route('admin.condomino.editar',$registro->id_condomino)}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Editar">
+                <i class="material-icons" style="font-size:2rem">create</i></a>
+              <a href="{{route('admin.agenda',$registro->id_condomino)}}"class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Agendar">
+                <i class="large material-icons" style="font-size:2rem">view_agenda</i></a>
+              <a href="{{route('admin.condomino.deletar',$registro->id_condomino)}}"class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Deletar">
+                <i class="large material-icons" style="font-size:2rem">delete_forever</i></a>
             </td>
           </tr>
             @endforeach
         </tbody>
+
       </table>
         <!-- Scaled in -->
-        <a id="scale-demo" href="{{route('admin.condomino.adicionar')}}" class="btn-floating btn-large scale-transition">
+        <a id="scale-demo" href="{{route('admin.condomino.adicionar')}}" class="btn-floating btn-large scale-transition tooltipped" data-position="bottom" data-delay="50" data-tooltip="Novo Condomino">
           <i class="material-icons">add</i>
         </a>
     </div>
