@@ -20,7 +20,7 @@
           </tr>
         </thead>
         <tbody>
-            @foreach($retorna as $registro)
+            @foreach($registros as $registro)
           <tr>
             <td>{{$registro->id_condomino}}</td>
             <td>{{$registro->nome}}</td>
@@ -28,7 +28,7 @@
             <td>{{$registro->conj}}</td>
             <td>{{$registro->numapart}}</td>
             <td>
-              <img width="150" height="150" src="{{asset($registro->imagem)}}" alt="$registro->nome">
+              <img width="60" height="60" src="{{asset($registro->imagem)}}" alt="$registro->nome">
             </td>
             <td style="{{isset($registro->status) && $registro->status == 'sim' ? 'color:#039be5' : 'color:red'}}">{{$registro->status}}</td>
             <td>
