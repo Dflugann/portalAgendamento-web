@@ -16,15 +16,21 @@
 				<a href="#!" class="brand-logo"><img src="{{ asset('img/logo-gdigital.png') }}" alt=""> </a>
 				<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 					<ul class="right hide-on-med-and-down">
-					<li><a href="/">Home</a></li>
-					<li><a href="{{route('admin.condomino')}}">Lista Condomino</a></li>
-					<li><a href="{{route('admin.visitante')}}">Lista Visitante</a></li>
+						<li><a href="/">Home</a></li>
+						@if(Auth::guest())
+						@else
+						<li><a href="{{route('admin.condomino')}}">Lista Condomino</a></li>
+						<li><a href="{{route('admin.visitante')}}">Lista Visitante</a></li>
+						@endif
 					</ul>
 
 					<ul class="side-nav" id="mobile-demo">
 						<li><a href="/">Home</a></li>
+						@if(Auth::guest())
+						@else
 						<li><a href="{{route('admin.condomino')}}">Lista Condomino</a></li>
 						<li><a href="{{route('admin.visitante')}}">Lista Visitante</a></li>
+						@endif
 					</ul>
 			</div>
 		</nav>

@@ -8,7 +8,7 @@ use App\Condomino;
 
 class CondominoController extends Controller
 {
-    public $primarykey = 'id_condomino';
+    
     public function index()
     {
       $dados = condomino::all();

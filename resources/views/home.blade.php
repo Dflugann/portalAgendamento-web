@@ -92,12 +92,12 @@
                 <div>
                     <h1>Teste POST</h1>
                     <form action="/contato" method="POST">
-                        {{csrf_field()}}                            
+                        {{csrf_field()}}
                             <input type="text" name="nome" placeholder="Nome">
                             <button>Enviar</button>
                     </form>
                     <form action="/criar" method="POST">
-                        {{csrf_field()}}                            
+                        {{csrf_field()}}
                             <input type="text" name="nome" placeholder="Nome">
                             <button>Enviar</button>
                     </form>
