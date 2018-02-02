@@ -21,6 +21,11 @@
 						@else
 						<li><a href="{{route('admin.condomino')}}">Lista Condomino</a></li>
 						<li><a href="{{route('admin.visitante')}}">Lista Visitante</a></li>
+						<li>
+							<a href="{{route('site.login.sair')}}">
+								<i class="material-icons prefix">clear</i>
+							</a>
+						</li>
 						@endif
 					</ul>
 
@@ -30,6 +35,11 @@
 						@else
 						<li><a href="{{route('admin.condomino')}}">Lista Condomino</a></li>
 						<li><a href="{{route('admin.visitante')}}">Lista Visitante</a></li>
+						<li>
+							<a href="{{route('site.login.sair')}}">
+								Sair
+							</a>
+						</li>
 						@endif
 					</ul>
 			</div>

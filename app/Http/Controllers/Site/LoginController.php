@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Site;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Auth;
+use Illuminate\Support\Facades\Auth;
+
+
 
 class LoginController extends Controller
 {
@@ -15,16 +17,20 @@ class LoginController extends Controller
   public function entrar(Request $req)
   {
     $dados = $req->all();
-    if (Auth::attempt(['email'=>$dados['email'], 'password'=>$dados['senha']])) {
-      redirect()->route('admin.condomino');
-    }else {
-      redirect()->route('site.login');
-    }
+
+    $email = $dados['email'];
+    $password = $dados['senha'];
+
+    if (Auth::attempt(['email' => $email, 'password' => $password])) {
+             return redirect()->route('site.home');
+        }else {
+          return redirect()->route('site.login');
+        }
   }
 
   public function sair()
   {
     Auth::logout();
-    return Redirect::route('site.home');
+    return redirect()->route('site.login');
   }
 }

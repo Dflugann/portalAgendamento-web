@@ -34,7 +34,7 @@
             <td>
               <a href="{{route('admin.condomino.editar',$registro->id_condomino)}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Editar">
                 <i class="material-icons" style="font-size:2rem">create</i></a>
-              <a href="{{route('admin.agenda',$registro->id_condomino)}}"class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Agendar">
+              <a href="{{route('admin.visitante',$registro->id_condomino)}}"class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Visitantes">
                 <i class="large material-icons" style="font-size:2rem">view_agenda</i></a>
               <a href="{{route('admin.condomino.deletar',$registro->id_condomino)}}"class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Deletar">
                 <i class="large material-icons" style="font-size:2rem">delete_forever</i></a>
