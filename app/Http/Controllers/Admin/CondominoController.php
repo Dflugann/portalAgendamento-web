@@ -8,10 +8,10 @@ use App\Condomino;
 
 class CondominoController extends Controller
 {
-    
+
     public function index()
     {
-      $dados = condomino::all();
+      $dados = Condomino::all();
       $registros = json_decode($dados);
 
       return view('admin.condomino.index',compact('registros'));
