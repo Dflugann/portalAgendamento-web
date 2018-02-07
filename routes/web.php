@@ -15,6 +15,9 @@
     return view('welcome');
 });*/
 
+  Route::get('/teste', function() {
+    return view('index');
+  });
 
   /**ROUTE -- AUTH === FALSE**/
   Route::get('/',['as'=>'site.home','uses'=>'Site\HomeController@index']);

@@ -3,17 +3,17 @@
 @section('titulo','Portal Agendamento')
 
 @section('corpo')
-  <div id="index-banner" class="parallax-container">
+  <div class="parallax-container">
     <div class="section no-pad-bot">
       <div class="container">
         <br><br>
         @if(Auth::guest())
         @else
-        <div class = "card-panel">
+        <div class="card-panel text-black">
            <smail><strong>Bem Vindo!! </strong>{{Auth::user()->name}}</smail>
          </div>
         @endif
-        <h1 class="header center teal-text text-lighten-2">Portal Agendamento</h1>
+        <h1 class="header center teal-text text-lighten-2" style="color:#99E271 !important">Portal Agendamento</h1>
         <div class="row center">
           <h5 class="header col s12 light">A agilidade e a possibilidade de agendar a entrada dos vizitantes e acessar informações em tempo real</h5>
         </div>
