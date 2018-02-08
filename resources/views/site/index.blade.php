@@ -23,7 +23,12 @@
           <a href="{{route('site.login')}}" id="download-button" class="btn-large waves-effect waves-light teal lighten-1 pulse">Faça o Login</a>
         </div>
         @else
-        <div class="row center">
+        <div class="card small">
+          <!-- Card Content -->
+          <img class="materialboxed" data-caption="GroupDigital, tecnologia que você precisa" width="250" src="{{asset('img/background1.jpg')}}">
+        </div>
+
+        <!-- <div class="row center">
             <div class="col s12 m4 l4 push-l1">
               <a href="{{route('admin.administrador.adicionar')}}" class="btn orange darken-4 tooltipped" data-position="bottom" data-delay="100" data-tooltip="Diretor ou Sindico"><i class="material-icons">person_add</i> Administrador</a>
             </div>
@@ -40,19 +45,12 @@
             </div>
             <div class="col s12 m4 l4">
               <a href="{{route('admin.condomino.adicionar')}}" class="btn tooltipped" data-position="bottom" data-delay="50" data-tooltip="Aqui você cadastra novo morador"><i class="material-icons">person_add</i> Condomino</a>
-            </div> -->
+            </div>
             <div class="col s12 m4 l4 push-l4">
               <a href="{{route('admin.visitante.adicionar')}}" class="btn tooltipped" data-position="bottom" data-delay="50" data-tooltip="Visitante e Agenda"><i class="material-icons">person_add</i> Visitante</a>
             </div>
-        </div>
+        </div> -->
         @endif
-        <div class="carousel">
-    <a class="carousel-item" href="#one!"><img src="{{asset('img/background1.jpg')}}"></a>
-    <a class="carousel-item" href="#two!"><img src="{{asset('img/background1.jpg')}}"></a>
-    <a class="carousel-item" href="#three!"><img src="{{asset('img/background1.jpg')}}"></a>
-    <a class="carousel-item" href="#four!"><img src="{{asset('img/background1.jpg')}}"></a>
-    <a class="carousel-item" href="#five!"><img src="{{asset('img/background1.jpg')}}"></a>
-        </div>
       </div>
     </div>
   </div>
