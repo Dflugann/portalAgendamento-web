@@ -84,7 +84,7 @@
 		<ul id="slide-out" class="side-nav">
     <li>
 			<div class="center">
-				<smail><strong>Olá </strong>@if(Auth::guest()) @else {{Auth::user()->name}} @endif</smail>
+				@if(Auth::guest()) @else <smail><strong>Olá </strong>{{Auth::user()->name}} @endif</smail>
 			</div>
 			<div class="user-view">
       	<div class="background"><img width="100%" src="{{ asset('img/fundo-gdigital.gif') }}"></div>
