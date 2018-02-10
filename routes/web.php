@@ -32,6 +32,8 @@
 /**ROUTE -- INDEX**/
   Route::get('/admin/visitante',['as'=>'admin.visitante', 'uses'=>'Admin\VisitanteController@index']);
   Route::get('/admin/condomino',['as'=>'admin.condomino', 'uses'=>'Admin\CondominoController@index']);
+  Route::get('/admin/apartamento',['as'=>'admin.apartamento', 'uses'=>'Admin\CondominoController@index']);
+  Route::get('/admin/conjunto',['as'=>'admin.conjunto', 'uses'=>'Admin\CondominoController@index']);
 
 
 /**ROUTE -- ADICIONAR**/
@@ -39,6 +41,8 @@
   Route::get('/admin/condomino/adicionar',['as'=>'admin.condomino.adicionar', 'uses'=>'Admin\CondominoController@adicionar']);
   Route::get('/admin/administrador/adicionar',['as'=>'admin.administrador.adicionar', 'uses'=>'Admin\AdministradorController@adicionar']);
   Route::get('/admin/supervisor/adicionar',['as'=>'admin.supervisor.adicionar', 'uses'=>'Admin\SupervisorController@adicionar']);
+  Route::get('/admin/apartamento/adicionar',['as'=>'admin.apartamento.adicionar', 'uses'=>'Admin\ApartamentoController@adicionar']);
+  Route::get('/admin/conjunto/adicionar',['as'=>'admin.conjunto.adicionar', 'uses'=>'Admin\ConjuntoController@adicionar']);
 
 /**ROUTE -- SALVAR**/
   Route::post('/admin/visitante/salvar',['as'=>'admin.visitante.salvar', 'uses'=>'VisitanteController@salvar']);
