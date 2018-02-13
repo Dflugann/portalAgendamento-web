@@ -11,4 +11,9 @@ class ConjuntoController extends Controller
     {
       return view('admin.conjunto.adicionar');
     }
+    public function salvar(Request $req)
+    {
+      $dados = $req->all();
+      dd($dados);
+    }
 }

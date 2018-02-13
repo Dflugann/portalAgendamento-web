@@ -12,6 +12,7 @@
     $('.materialboxed').materialbox();
     $('.slider').slider();
     $('.parallax').parallax();
+    $('select').material_select();
 
     var i = setInterval(function () {
       clearInterval(i);

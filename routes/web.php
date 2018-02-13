@@ -47,6 +47,7 @@
 /**ROUTE -- SALVAR**/
   Route::post('/admin/visitante/salvar',['as'=>'admin.visitante.salvar', 'uses'=>'VisitanteController@salvar']);
   Route::post('/admin/condomino/salvar',['as'=>'admin.condomino.salvar', 'uses'=>'Admin\CondominoController@salvar']);
+  Route::post('/admin/conjunto/salvar',['as'=>'admin.conjunto.salvar', 'uses'=>'Admin\ConjuntoController@salvar']);
 
 /**ROUTE -- EDITAR**/
   Route::get('/admin/visitante/editar/{id}',['as'=>'admin.visitante.editar', 'uses'=>'VisitanteController@editar']);
