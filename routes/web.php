@@ -33,7 +33,7 @@
   Route::get('/admin/visitante',['as'=>'admin.visitante', 'uses'=>'Admin\VisitanteController@index']);
   Route::get('/admin/condomino',['as'=>'admin.condomino', 'uses'=>'Admin\CondominoController@index']);
   Route::get('/admin/apartamento',['as'=>'admin.apartamento', 'uses'=>'Admin\CondominoController@index']);
-  Route::get('/admin/conjunto',['as'=>'admin.conjunto', 'uses'=>'Admin\CondominoController@index']);
+  Route::get('/admin/conjunto',['as'=>'admin.conjunto', 'uses'=>'Admin\ConjuntoController@index']);
 
 
 /**ROUTE -- ADICIONAR**/
