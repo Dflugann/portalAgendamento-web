@@ -32,6 +32,34 @@ class ConjuntoController extends Controller
       }
 
       $result = Conjunto::create($dados);
-      return redirect()->route('admin.conjunto.adicionar');
+      return redirect()->route('admin.conjunto');
+    }
+
+    public function editar($id)
+    {
+      $registro = Conjunto::find($id);
+      return view('admin.conjunto.editar', compact('registro'));
+    }
+
+    public function atualizar(Request $req, $id)
+    {
+      $dados = $req->all();
+      if($req->hasfile('imagem')){
+        $imagem = $req->file('imagem');
+        $num = rand(1111,9999);
+        $dir = "img/conjunto";
+        $ex = $imagem->guessClientExtencion();
+        $nomeImagem = "imagem_" . $num . "." . $ex;
+        $imagem->move($dir, $nomeImagem);
+        $dados['imagem'] = $dir . "/" . $nomeImagem;
+      }
+      Conjunto::find($id)->update($dados);
+      return redirect()->route('admin.conjunto');
+    }
+
+    public function deletar($id)
+    {
+      Conjunto::find($id)->delete($id);
+      return redirect()->route('admin.conjunto');
     }
 }

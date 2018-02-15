@@ -4,11 +4,14 @@
 
 @section('corpo')
 <div class="container">
-  <h3 class="center">Apartamentos</h3>
-  <div class="row">
-    <div class="card-panel hoverable center-align">
-      <p><h5 class="red-text">Estamos em desenvolvimento</h5></p>
+  <h3 class="center">Adicionar Apartamento</h3>
+  <form class="col s12 m12 l12" action="{{route('admin.apartamento.salvar')}}" method="POST">
+    {{csrf_field()}}
+    @include('admin.apartamento._form')
+
+    <div class="center">
+      <button class="btn green pulse">Salvar</button>
     </div>
-  </div>
+  </form>
 </div>
 @endsection
