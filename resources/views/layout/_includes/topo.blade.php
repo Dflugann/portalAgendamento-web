@@ -109,25 +109,25 @@
 				<a href="{{route('admin.administrador.adicionar')}}" class="tooltipped" data-position="bottom" data-delay="100" data-tooltip="Diretor ou Sindico"><i class="material-icons" style="color: #e65100">person_add</i> Administrador</a>
 			</li>
 			<li>
-				<a href="{{route('admin.supervisor.adicionar')}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Condomino Administrador"><i class="material-icons" style="color: #01579b">person_add</i> Supervisor</a>
+				<a href="{{route('admin.supervisor.adicionar')}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Supervisor"><i class="material-icons" style="color: #01579b">person_add</i> Supervisor</a>
 			</li>
 			<li>
-				<a href="{{route('admin.condomino.adicionar')}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Condomino"><i class="material-icons" style="color: #1B5E20">person_add</i> operador</a>
+				<a href="{{route('admin.operador.adicionar')}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="operador"><i class="material-icons" style="color: #1B5E20">person_add</i> operador</a>
 			</li>
 			<li>
 				<a href="{{route('admin.visitante.adicionar')}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Visitante e Agenda"><i class="material-icons" style="color: #26a69a">person_add</i> Visitante</a>
 			</li>
 			<hr>
 			<li>
-				<a href="{{route('admin.conjunto.adicionar')}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Adicionar Conjunto / Torre"><i class="material-icons" style="color: #1B5E20">domain</i> Conjunto</a>
+				<a href="{{route('admin.empreendimento.adicionar')}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Adicionar Empreendimento"><i class="material-icons" style="color: #1B5E20">domain</i> Empreendimento</a>
 			</li>
 			<li>
 				<a href="{{route('admin.apartamento.adicionar')}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Adicionar Apartamento"><i class="material-icons" style="color: #26a69a">location_city</i> Apartamento</a>
 			</li>
 			<hr>
 			<li><a href="{{route('admin.apartamento')}}"><i class="material-icons" style="color: green">list</i>Lista Apartamentos</a></li>
-			<li><a href="{{route('admin.conjunto')}}"><i class="material-icons" style="color: green">list</i>Lista Conjuntos</a></li>
-			<li><a href="{{route('admin.condomino')}}"><i class="material-icons" style="color: green">list</i>Lista Condomino</a></li>
+			<li><a href="{{route('admin.empreendimento')}}"><i class="material-icons" style="color: green">list</i>Lista Empreendimento</a></li>
+			<li><a href="{{route('admin.operador')}}"><i class="material-icons" style="color: green">list</i>Lista Operador</a></li>
 			<li><a href="{{route('admin.visitante')}}"><i class="material-icons" style="color: green">list</i>Lista Visitante</a></li>
 			<li>
 				<a href="{{route('site.login.sair')}}">

@@ -1,11 +1,11 @@
 @extends('layout.system')
 
-@section('titulo', 'Aparatamentos')
+@section('titulo', 'Apartamentos')
 
 @section('corpo')
 
 <div class="container">
-  <h3 class="center">Aparatamentos</h3>
+  <h3 class="center">Apartamentos</h3>
   <div class="row">
     <div class="col12 m12 l12">
       @foreach($registros as $registro)

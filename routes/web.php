@@ -31,38 +31,40 @@
 
 /**ROUTE -- INDEX**/
   Route::get('/admin/visitante',['as'=>'admin.visitante', 'uses'=>'Admin\VisitanteController@index']);
-  Route::get('/admin/condomino',['as'=>'admin.condomino', 'uses'=>'Admin\CondominoController@index']);
+  Route::get('/admin/operador',['as'=>'admin.operador', 'uses'=>'Admin\OperadorController@index']);
   Route::get('/admin/apartamento',['as'=>'admin.apartamento', 'uses'=>'Admin\ApartamentoController@index']);
-  Route::get('/admin/conjunto',['as'=>'admin.conjunto', 'uses'=>'Admin\ConjuntoController@index']);
+  Route::get('/admin/empreendimento',['as'=>'admin.empreendimento', 'uses'=>'Admin\EmpreendimentoController@index']);
+  Route::get('/admin/condomino',['as'=>'admin.condomino', 'uses'=>'Admin\CondominoController@index']);
 
 
 /**ROUTE -- ADICIONAR**/
   Route::get('/admin/visitante/adicionar',['as'=>'admin.visitante.adicionar', 'uses'=>'Admin\VisitanteController@adicionar']);
-  Route::get('/admin/condomino/adicionar',['as'=>'admin.condomino.adicionar', 'uses'=>'Admin\CondominoController@adicionar']);
+  Route::get('/admin/operador/adicionar',['as'=>'admin.operador.adicionar', 'uses'=>'Admin\OperadorController@adicionar']);
   Route::get('/admin/administrador/adicionar',['as'=>'admin.administrador.adicionar', 'uses'=>'Admin\AdministradorController@adicionar']);
   Route::get('/admin/supervisor/adicionar',['as'=>'admin.supervisor.adicionar', 'uses'=>'Admin\SupervisorController@adicionar']);
   Route::get('/admin/apartamento/adicionar',['as'=>'admin.apartamento.adicionar', 'uses'=>'Admin\ApartamentoController@adicionar']);
-  Route::get('/admin/conjunto/adicionar',['as'=>'admin.conjunto.adicionar', 'uses'=>'Admin\ConjuntoController@adicionar']);
+  Route::get('/admin/empreendimento/adicionar',['as'=>'admin.empreendimento.adicionar', 'uses'=>'Admin\EmpreendimentoController@adicionar']);
+
 
 /**ROUTE -- SALVAR**/
   Route::post('/admin/visitante/salvar',['as'=>'admin.visitante.salvar', 'uses'=>'VisitanteController@salvar']);
-  Route::post('/admin/condomino/salvar',['as'=>'admin.condomino.salvar', 'uses'=>'Admin\CondominoController@salvar']);
-  Route::post('/admin/conjunto/salvar',['as'=>'admin.conjunto.salvar', 'uses'=>'Admin\ConjuntoController@salvar']);
+  Route::post('/admin/operador/salvar',['as'=>'admin.operador.salvar', 'uses'=>'Admin\OperadorController@salvar']);
+  Route::post('/admin/empreendimento/salvar',['as'=>'admin.empreendimento.salvar', 'uses'=>'Admin\EmpreendimentoController@salvar']);
   Route::post('/admin/apartamento/salvar',['as'=>'admin.apartamento.salvar', 'uses'=>'Admin\ApartamentoController@salvar']);
 
 /**ROUTE -- EDITAR**/
   Route::get('/admin/visitante/editar/{id}',['as'=>'admin.visitante.editar', 'uses'=>'VisitanteController@editar']);
-  Route::get('/admin/condomino/editar/{id}',['as'=>'admin.condomino.editar', 'uses'=>'Admin\CondominoController@editar']);
-  Route::get('/admin/conjunto/editar/{id}',['as'=>'admin.conjunto.editar', 'uses'=>'Admin\ConjuntoController@editar']);
+  Route::get('/admin/operador/editar/{id}',['as'=>'admin.operador.editar', 'uses'=>'Admin\OperadorController@editar']);
+  Route::get('/admin/empreendimento/editar/{id}',['as'=>'admin.empreendimento.editar', 'uses'=>'Admin\EmpreendimentoController@editar']);
 
 /**ROUTE -- ATUALIZAR**/
   Route::put('/admin/visitante/atualizar/{id}',['as'=>'admin.visitante.atualizar', 'uses'=>'VisitanteController@atualizar']);
-  Route::put('/admin/condomino/atualizar/{id}',['as'=>'admin.condomino.atualizar', 'uses'=>'admin\CondominoController@atualizar']);
-  Route::put('/admin/conjunto/atualizar/{id}',['as'=>'admin.conjunto.atualizar', 'uses'=>'admin\ConjuntoController@atualizar']);
+  Route::put('/admin/operador/atualizar/{id}',['as'=>'admin.operador.atualizar', 'uses'=>'admin\OperadorController@atualizar']);
+  Route::put('/admin/empreendimento/atualizar/{id}',['as'=>'admin.empreendimento.atualizar', 'uses'=>'admin\EmpreendimentoController@atualizar']);
 
 /**ROUTE -- DELETAR**/
   Route::get('/admin/visitante/deletar/{id}',['as'=>'admin.visitante.deletar', 'uses'=>'VisitanteController@deletar']);
-  Route::get('/admin/condomino/deletar/{id}',['as'=>'admin.condomino.deletar', 'uses'=>'admin\CondominoController@deletar']);
-  Route::get('/admin/conjunto/deletar/{id}',['as'=>'admin.conjunto.deletar', 'uses'=>'admin\ConjuntoController@deletar']);
+  Route::get('/admin/operador/deletar/{id}',['as'=>'admin.operador.deletar', 'uses'=>'admin\OperadorController@deletar']);
+  Route::get('/admin/empreendimento/deletar/{id}',['as'=>'admin.empreendimento.deletar', 'uses'=>'admin\EmpreendimentoController@deletar']);
   /**ROUTE -- AUTH === TRUE END**/
 });

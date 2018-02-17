@@ -4,22 +4,22 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Condomino;
+use App\Operador;
 
-class CondominoController extends Controller
+class OperadorController extends Controller
 {
 
     public function index()
     {
-      $dados = Condomino::all();
+      $dados = Operador::all();
       $registros = json_decode($dados);
 
-      return view('admin.condomino.index',compact('registros'));
+      return view('admin.operador.index',compact('registros'));
     }
 
     public function adicionar()
     {
-      return view('admin.condomino.adicionar');
+      return view('admin.operador.adicionar');
     }
 
     public function salvar(Request $req )
@@ -33,20 +33,20 @@ class CondominoController extends Controller
       if ($req->hasFile('imagem')) {
         $imagem = $req->file('imagem');
         $num = rand(1111, 9999);
-        $dir = "img/condomino";
+        $dir = "img/operador";
         $ex = $imagem->guessClientExtension();
         $nomeImagem = "imagem_" . "." . $num . "." . $ex;
         $imagem->move($dir, $nomeImagem);
         $dados['imagem'] = $dir . "/" . $nomeImagem;
       }
-      Condomino::create($dados);
-      return redirect()->route('admin.condomino');
+      Operador::create($dados);
+      return redirect()->route('admin.operador');
     }
 
     public function editar($id)
     {
-      $registro = condomino::find($id);
-      return view('admin.condomino.editar', compact('registro'));
+      $registro = Operador::find($id);
+      return view('admin.operador.editar', compact('registro'));
     }
 
     public function atualizar(Request $req, $id)
@@ -62,20 +62,20 @@ class CondominoController extends Controller
       if ($req->hasFile('imagem')) {
         $imagem = $req->file('imagem');
         $num = rand(1111, 9999);
-        $dir = "img/condomino";
+        $dir = "img/operador";
         $ex = $imagem->guessClientExtension();
         $nomeImagem = "imagem_" . "." . $num . "." . $ex;
         $imagem->move($dir, $nomeImagem);
         $dados['imagem'] = $dir . "/" . $nomeImagem;
       }
 
-      Condomino::find($id)->update($dados);
-      return redirect()->route('admin.condomino');
+      Operador::find($id)->update($dados);
+      return redirect()->route('admin.operador');
     }
 
     public function deletar($id)
     {
-      Condomino::find($id)->delete();
-      return redirect()->route('admin.condomino');
+      Operador::find($id)->delete();
+      return redirect()->route('admin.operador');
     }
 }

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Conjunto;
+use App\Empreendimento;
 use App\Apartamento;
 
 class ApartamentoController extends Controller
@@ -18,19 +18,20 @@ class ApartamentoController extends Controller
 
     public function adicionar()
     {
-      $registros = Conjunto::all();
+      $registros = Empreendimento::all();
       return view('admin.apartamento.adicionar', compact('registros'));
     }
 
     public function salvar(Request $req)
     {
       $dados = $req->all();
+      var_dump($dados);exit;
       if ($req->hasFile('imagem')) {
         $imagem = $req->file('imagem');
-        $num = rand(1111,9999);
+        $num = rand(1111, 9999);
         $dir = "img/apartamento";
         $ex = $imagem->guessClientExtension();
-        $nomeImagem = "imagem_". $num . "." . $ex;
+        $nomeImagem = "imagem_" . "." . $num . "." . $ex;
         $imagem->move($dir, $nomeImagem);
         $dados['imagem'] = $dir . "/" . $nomeImagem;
       }

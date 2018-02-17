@@ -1,10 +1,10 @@
 @extends('layout.system')
 
-@section('titulo', 'Conjunto')
+@section('titulo', 'Empreendimento')
 
 @section('corpo')
 <div class="container">
-  <h3 class="center">Conjuntos/ torres</h3>
+  <h3 class="center">Empreendimentos</h3>
   <div class="row">
     <div class="col s12 m12 l12">
       @foreach($registros as $registro)
@@ -16,11 +16,11 @@
           <span class="card-title activator grey-text text-darken-4 center">{{$registro->titulo}}<i class="material-icons right">more_vert</i></span>
           <!-- <p><a href="#"><i class="material-icons"></i> This is a link</a></p> -->
           <div class="center">
-          <a href="{{route('admin.conjunto.editar',$registro->id_conjunto)}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Editar">
+          <a href="{{route('admin.empreendimento.editar',$registro->id_empreendimento)}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Editar">
             <i class="material-icons" style="font-size:2rem">create</i></a>
           <a href=""class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Apartamentos">
             <i class="large material-icons" style="font-size:2rem">view_agenda</i></a>
-          <a href="{{route('admin.conjunto.deletar', $registro->id_conjunto)}}"class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Deletar">
+          <a href="{{route('admin.empreendimento.deletar', $registro->id_empreendimento)}}"class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Deletar">
             <i class="large material-icons" style="font-size:2rem">delete_forever</i></a>
           </div>
         </div>
@@ -31,7 +31,7 @@
       </div>
       @endforeach
     </div>
-    <a id="scale-demo" href="{{route('admin.conjunto.adicionar')}}" class="btn-floating btn-large scale-transition tooltipped" data-position="bottom" data-delay="50" data-tooltip="Novo Conjunto">
+    <a id="scale-demo" href="{{route('admin.empreendimento.adicionar')}}" class="btn-floating btn-large scale-transition tooltipped" data-position="bottom" data-delay="50" data-tooltip="Novo Conjunto">
       <i class="material-icons">add</i>
     </a>
   </div>

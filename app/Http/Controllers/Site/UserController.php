@@ -17,7 +17,7 @@ class UserController extends Controller
     {
       $dados = $req->all();
       if (Auth::attempt(['email'=>$dados['email'], 'password'=>$dados['senha']] )) {
-        redirect()->route('admin.condomino');
+        redirect()->route('admin.operador');
       }else {
         redirect()->route('login.home');
       }

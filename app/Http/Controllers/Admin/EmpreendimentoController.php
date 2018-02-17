@@ -4,19 +4,19 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Conjunto;
+use App\Empreendimento;
 
-class ConjuntoController extends Controller
+class EmpreendimentoController extends Controller
 {
     public function index()
     {
-      $dados = Conjunto::all();
+      $dados = Empreendimento::all();
       $registros = json_decode($dados);
-      return view('admin.conjunto.index', compact('registros'));
+      return view('admin.empreendimento.index', compact('registros'));
     }
     public function adicionar()
     {
-      return view('admin.conjunto.adicionar');
+      return view('admin.empreendimento.adicionar');
     }
     public function salvar(Request $req)
     {
@@ -24,21 +24,21 @@ class ConjuntoController extends Controller
       if ($req->hasFile('imagem')) {
         $imagem = $req->file('imagem');
         $num = rand(1111, 9999);
-        $dir = "img/conjunto";
+        $dir = "img/empreendimento";
         $ex = $imagem->guessClientExtension();
         $nomeImagem = "imagem_" . $num . "." . $ex;
         $imagem->move($dir, $nomeImagem);
         $dados['imagem'] = $dir . "/" . $nomeImagem;
       }
 
-      $result = Conjunto::create($dados);
-      return redirect()->route('admin.conjunto');
+      $result = Empreendimento::create($dados);
+      return redirect()->route('admin.empreendimento');
     }
 
     public function editar($id)
     {
-      $registro = Conjunto::find($id);
-      return view('admin.conjunto.editar', compact('registro'));
+      $registro = Empreendimento::find($id);
+      return view('admin.empreendimento.editar', compact('registro'));
     }
 
     public function atualizar(Request $req, $id)
@@ -47,19 +47,19 @@ class ConjuntoController extends Controller
       if($req->hasfile('imagem')){
         $imagem = $req->file('imagem');
         $num = rand(1111,9999);
-        $dir = "img/conjunto";
+        $dir = "img/empreendimento";
         $ex = $imagem->guessClientExtencion();
         $nomeImagem = "imagem_" . $num . "." . $ex;
         $imagem->move($dir, $nomeImagem);
         $dados['imagem'] = $dir . "/" . $nomeImagem;
       }
-      Conjunto::find($id)->update($dados);
-      return redirect()->route('admin.conjunto');
+      Empreendimento::find($id)->update($dados);
+      return redirect()->route('admin.empreendimento');
     }
 
     public function deletar($id)
     {
-      Conjunto::find($id)->delete($id);
-      return redirect()->route('admin.conjunto');
+      Empreendimento::find($id)->delete($id);
+      return redirect()->route('admin.empreendimento');
     }
 }

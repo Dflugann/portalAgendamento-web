@@ -1,15 +1,15 @@
 @extends('layout.system')
 
-@section('titulo', 'Editar Condomino')
+@section('titulo', 'Editar operador')
 
 @section('corpo')
 <div class="container">
-  <h3 class="center">Editando Condomino</h3>
+  <h3 class="center">Editando Operador</h3>
     <div class="row">
-      <form class="col s12" action="{{route('admin.condomino.atualizar',$registro->id_condomino)}}" method="post" enctype="multipart/form-data">
+      <form class="col s12" action="{{route('admin.operador.atualizar',$registro->id_operador)}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <input type="hidden" name="_method" value="put">
-        @include('admin.condomino._form')
+        @include('admin.operador._form')
 
         <button class="btn deep-orange">Atualizar</button>
       </form>

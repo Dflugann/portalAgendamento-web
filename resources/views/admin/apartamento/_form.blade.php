@@ -73,14 +73,17 @@
       <label>ÁREA</label>
   </div>
 </div>
-<div class="row">
-  <div class="file-field input-field">
+<div class="file-field input-file col a12 s12 m12">
+  <div class="btn">
+    <span>Imagem</span>
     <input type="file" name="imagem">
-    <div class="btn">
-      <span>Imagem</span>
-    </div>
-    <div class="file-path-wrapper">
-      <input type="text" class="file-path validate">
-    </div>
   </div>
+  <div class="file-path-wrapper">
+      <input class="file-path" type="text">
+  </div>
+  @if(isset($registro->imagem))
+    <div class="input-field">
+      <img width="100" src="{{asset($registro->imagem)}}">
+    </div>
+  @endif
 </div>
