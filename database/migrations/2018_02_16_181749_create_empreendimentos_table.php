@@ -16,11 +16,14 @@ class CreateEmpreendimentosTable extends Migration
     public function up()
     {
         Schema::create('empreendimentos', function (Blueprint $table) {
-          $table->increments('id_empreendimento');
+          $table->increments('id_empr');
           $table->string('titulo');
           $table->string('tipo');
+          $table->string('quadra');
+          $table->string('bloco');
           $table->string('imagem');
           $table->longText('descricao');
+          $table->enum('status',['sim','nao'])->default('sim');
           $table->timestamps();
       });
     }

@@ -14,13 +14,23 @@
         </div>
         <div class="card-content">
           <span class="card-title activator grey-text text-darken-4 center">{{$registro->titulo}}<i class="material-icons right">more_vert</i></span>
+          <div class="center-align">
+            <p><strong>Quadra:</strong> {{$registro->quadra}}
+            <strong>Bloco:</strong> {{$registro->bloco}}</p>
+            @if(isset($registro->status) && ($registro->status) == 'sim')
+              <small><strong style='color: green'>ATIVO</strong></small>
+              @else
+              <small><strong style='color: red'>DESATIVADO</strong></small>
+            @endif
+
+          </div>
           <!-- <p><a href="#"><i class="material-icons"></i> This is a link</a></p> -->
           <div class="center">
-          <a href="{{route('admin.empreendimento.editar',$registro->id_empreendimento)}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Editar">
+          <a href="{{route('admin.empreendimento.editar',$registro->id_empr)}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Editar">
             <i class="material-icons" style="font-size:2rem">create</i></a>
           <a href=""class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Apartamentos">
             <i class="large material-icons" style="font-size:2rem">view_agenda</i></a>
-          <a href="{{route('admin.empreendimento.deletar', $registro->id_empreendimento)}}"class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Deletar">
+          <a href="{{route('admin.empreendimento.deletar', $registro->id_empr)}}"class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Deletar">
             <i class="large material-icons" style="font-size:2rem">delete_forever</i></a>
           </div>
         </div>

@@ -41,23 +41,23 @@
       <img width="100" src="{{asset($registro->imagem)}}">
     </div>
   @endif
-</div> 
+</div>
 
 <div class="row">
   <div class="input-field col s12">
-    <input name="email" type="email"  value="{{isset($registro->email) ? $registro->email : ''}}">
+    <input name="email_operador" type="email"  value="{{isset($registro->email) ? $registro->email : ''}}">
     <label for="email">Email</label>
   </div>
 </div>
 
 <div class="row">
   <div class="input-field col s12">
-    <input name="password" type="password"  value="{{isset($registro->password) ? $registro->password : ''}}"">
+    <input name="password" type="password"  value="{{isset($registro->password) ? $registro->password : ''}}">
     <label for="password">Password</label>
   </div>
 </div>
 
 <p>
-   <input type="checkbox" class="filled-in" id="filled-in-box" value="true" name="status" {{isset($registro->status) && $registro->status == 'sim' ? 'checked' : ''}} />
+   <input type="checkbox" class="filled-in" id="filled-in-box" checked value="true" name="status" {{isset($registro->status) && $registro->status == 'sim' ? 'checked' : ''}} />
    <label for="filled-in-box">Ativo</label>
  </p>

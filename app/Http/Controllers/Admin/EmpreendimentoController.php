@@ -21,6 +21,9 @@ class EmpreendimentoController extends Controller
     public function salvar(Request $req)
     {
       $dados = $req->all();
+
+      if(isset($dados['status'])){$dados['status'] = 'sim';}else {$dados['status'] = 'nao';}
+
       if ($req->hasFile('imagem')) {
         $imagem = $req->file('imagem');
         $num = rand(1111, 9999);
@@ -30,8 +33,7 @@ class EmpreendimentoController extends Controller
         $imagem->move($dir, $nomeImagem);
         $dados['imagem'] = $dir . "/" . $nomeImagem;
       }
-
-      $result = Empreendimento::create($dados);
+      Empreendimento::create($dados);
       return redirect()->route('admin.empreendimento');
     }
 
@@ -44,6 +46,7 @@ class EmpreendimentoController extends Controller
     public function atualizar(Request $req, $id)
     {
       $dados = $req->all();
+      if (isset($dados['status'])) {$dados['status'] = 'sim';}else {$dados['status'] = 'nao';}
       if($req->hasfile('imagem')){
         $imagem = $req->file('imagem');
         $num = rand(1111,9999);

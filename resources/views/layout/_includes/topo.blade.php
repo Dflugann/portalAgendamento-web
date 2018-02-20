@@ -55,7 +55,7 @@
 		</nav> -->
 <div class="nav-wrapper grey darken-2">
 		<a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons" style="font-size:30px;color:#fff">menu</i></a>
-			<div class="row">
+			<div class="row" style="margin-bottom: 0px;">
 				<div class="col s8 m11 l11">
 					<div class="center">
 						<a href="#!" class="brand-logo"><img src="{{ asset('img/logo-groupdigital.png') }}" alt=""> </a>
@@ -83,14 +83,13 @@
 
 		<ul id="slide-out" class="side-nav">
     <li>
-			<div class="center">
+			<!-- <div class="center">
 				@if(Auth::guest()) @else <smail><strong>Olá </strong>{{Auth::user()->name}} @endif</smail>
-			</div>
-			<div class="user-view">
-      	<div class="background"><img width="100%" src="{{ asset('img/fundo-gdigital.gif') }}"></div>
-				<div class="row">
+			</div> -->
+			<div class="user-view" style="padding: 0px 10px 0;">
+      	<div class="background">
+					<img width="100%" src="{{ asset('img/fundo-gdigital.gif') }}"></div>
 					<img width="100%" src="{{ asset('img/logo-gdigital.gif') }}">
-				</div>
       	<!-- <a href="#!name"><span class="white-text name">John Doe</span></a>
       	<a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a> -->
     	</div>

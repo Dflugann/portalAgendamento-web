@@ -25,11 +25,7 @@ class OperadorController extends Controller
     public function salvar(Request $req )
     {
       $dados = $req->all();
-      if (isset($dados['status'])) {
-        $dados['status'] = 'sim';
-      }else {
-        $dados['status'] = 'nao';
-      }
+      if (isset($dados['status'])) {$dados['status'] = 'sim';}else {$dados['status'] = 'nao';}
       if ($req->hasFile('imagem')) {
         $imagem = $req->file('imagem');
         $num = rand(1111, 9999);

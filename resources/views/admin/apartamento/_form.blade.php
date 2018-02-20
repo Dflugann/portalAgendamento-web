@@ -1,12 +1,12 @@
 <div class="row">
   <div class="input-field col s12 m4 l4">
-    <select name="conjunto">
+    <select name="nome_empr">
       <option value="0" disabled selected>Selecione</option>
       @foreach($registros as $registro)
-        <option value={{$registro->titulo}}>{{$registro->titulo}}</option>";
+      <option value={{$registro->titulo}}>{{$registro->titulo}}</option>";
       @endforeach
     </select>
-      <label>Conjunto / Torre</label>
+      <label>Empreendimento</label>
   </div>
 
   <div class="input-field col s12 m12 l2">
@@ -20,7 +20,7 @@
   </div>
 
   <div class="input-field col s12 m2 l2">
-    <select name="numero">
+    <select name="num">
       <option value="0" disabled selected>Selecione</option>
       <?php for($a =1; $a <= 500; $a++) {
         echo "<option value=$a>$a</option>";
@@ -60,7 +60,7 @@
       <label>SUITE</label>
   </div>
   <div class="input-field col s12 m2 l2">
-    <select name="banheiro">
+    <select name="banh">
       <option value="0" disabled selected>Selecione</option>
       <?php for($a =0; $a <= 5; $a++) {
         echo "<option value=$a>$a</option>";
@@ -81,7 +81,7 @@
   <div class="file-path-wrapper">
       <input class="file-path" type="text">
   </div>
-  @if(isset($registro->imagem))
+  @if(!isset($registro->imagem))
     <div class="input-field">
       <img width="100" src="{{asset($registro->imagem)}}">
     </div>

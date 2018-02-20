@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Empreendimento;
@@ -24,7 +24,10 @@ class ApartamentoController extends Controller
 
     public function salvar(Request $req)
     {
+      // $registros = DB::table('empreendimentos')->get();
       $dados = $req->all();
+      $registro = DB::table('empreendimentos')->where('titulo', 'VILLA ALBINO')->value('id_empr');
+      $dados['id_empr'] = $registro;
       var_dump($dados);exit;
       if ($req->hasFile('imagem')) {
         $imagem = $req->file('imagem');
@@ -35,7 +38,13 @@ class ApartamentoController extends Controller
         $imagem->move($dir, $nomeImagem);
         $dados['imagem'] = $dir . "/" . $nomeImagem;
       }
+
       Apartamento::create($dados);
       return redirect()->route('admin.apartamento');
+    }
+
+    public function editar(Request $req, $id)
+    {
+
     }
 }

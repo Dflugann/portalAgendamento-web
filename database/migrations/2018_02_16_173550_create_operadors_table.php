@@ -22,7 +22,7 @@ class CreateOperadorsTable extends Migration
           $table->string('conj');
           $table->string('numapart');
           $table->string('imagem');
-          $table->char('email', 150);
+          $table->char('email_operador', 150);
           $table->char('password');
           $table->enum('status',['sim','nao'])->default('nao');
           $table->timestamps();
