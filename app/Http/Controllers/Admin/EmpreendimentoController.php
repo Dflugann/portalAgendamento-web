@@ -47,12 +47,12 @@ class EmpreendimentoController extends Controller
     {
       $dados = $req->all();
       if (isset($dados['status'])) {$dados['status'] = 'sim';}else {$dados['status'] = 'nao';}
-      if($req->hasfile('imagem')){
+      if ($req->hasFile('imagem')) {
         $imagem = $req->file('imagem');
-        $num = rand(1111,9999);
+        $num = rand(1111, 9999);
         $dir = "img/empreendimento";
-        $ex = $imagem->guessClientExtencion();
-        $nomeImagem = "imagem_" . $num . "." . $ex;
+        $ex = $imagem->guessClientExtension();
+        $nomeImagem = "imagem_" . "." . $num . "." . $ex;
         $imagem->move($dir, $nomeImagem);
         $dados['imagem'] = $dir . "/" . $nomeImagem;
       }

@@ -8,38 +8,62 @@
   <h3 class="center">Apartamentos</h3>
   <div class="row">
     <div class="col12 m12 l12">
-      @foreach($registros as $registro)
-      <div class="col s6 m6">
-        <!-- <h2 class="header">Horizontal Card</h2> -->
-        <div class="card horizontal">
 
-          <div class="card-image">
-            <img src="{{asset($registro->imagem)}}">
-          </div>
-          <div class="card-stacked">
-            <div class="card-content">
-            <strong>Conjunto:</strong> <smail>{{$registro->conjunto}}</smail>
-            <p><strong>Andar:</strong> <small>{{$registro->andar}}</small><strong> - </strong>
-            <strong>Numero:</strong> <smail>{{$registro->numero}}</smail></p>
-            <p><strong>Vaga:</strong> <smail>{{$registro->vaga}}</smail><strong> - </strong>
-            <strong>Dormitório:</strong> <smail>{{$registro->dorm}}</smail></p>
-            <p><strong>Suite:</strong> <smail>{{$registro->suite}}</smail><strong> - </strong>
-            <strong>Banheiro:</strong> <smail>{{$registro->banheiro}}</smail></p>
-            <p><strong>Area:</strong> <smail>{{$registro->area}}</smail></p>
-            </div>
-            <div class="card-content">
-            <a href="" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Editar">
-              <i class="material-icons" style="font-size:2rem">create</i></a>
-            <a href=""class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Apartamentos">
-              <i class="large material-icons" style="font-size:2rem">view_agenda</i></a>
-            <a href=""class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Deletar">
-              <i class="large material-icons" style="font-size:2rem">delete_forever</i></a>
-            </div>
+            <table class="bordered centered">
+              <thead>
+                <tr>
+                  <th>Id</th>
+                  <th>Empreendimento</th>
+                  <th>Andar</th>
+                  <th>Numero</th>
+                  <th>Vaga</th>
+                  <th>Dormitorio</th>
+                  <th>Suite</th>
+                  <th>Banheiro</th>
+                  <th>Area</th>
+                  <th>status</th>
+                  <th>Ação</th>
+                </tr>
+              </thead>
+              <tbody>
+                  @foreach($registros_apart as $registro)
+                <tr>
+                  <td>{{$registro->id_apart}}</td>
+                  <td>{{$registro->nome_empr}}</td>
+                  <td>{{$registro->andar}}</td>
+                  <td>{{$registro->num}}</td>
+                  <td>{{$registro->vaga}}</td>
+                  <td>{{$registro->dorm}}</td>
+                  <td>{{$registro->suite}}</td>
+                  <td>{{$registro->banh}}</td>
+                  <td>{{$registro->area}}</td>
+                  <td>
+                    @if(isset($registro->status) && ($registro->status) == 'sim')
+                      <small><strong style='color: green'>ATIVO</strong></small>
+                      @else
+                      <small><strong style='color: red'>DESATIVADO</strong></small>
+                    @endif
+                  </td>
+                  <td>
+                    <a href="{{route('admin.apartamento.editar', $registro->id_apart)}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Editar">
+                      <i class="material-icons" style="font-size:2rem">create</i></a>
+                    <a href=""class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Visitantes">
+                      <i class="large material-icons" style="font-size:2rem">view_agenda</i></a>
+                    <a href=""class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Deletar">
+                      <i class="large material-icons" style="font-size:2rem">delete_forever</i></a>
+                  </td>
+                </tr>
+                  @endforeach
+              </tbody>
+
+            </table>
+              <!-- Scaled in -->
+              <a id="scale-demo" href="{{route('admin.apartamento.adicionar')}}" class="btn-floating btn-large scale-transition tooltipped" data-position="bottom" data-delay="50" data-tooltip="Novo Apartamento">
+                <i class="material-icons">add</i>
+              </a>
           </div>
 
-        </div>
       </div>
-      @endforeach
     </div>
   </div>
 </div>

@@ -76,6 +76,3 @@
  <input type="checkbox" class="filled-in" id="filled-in-box" checked value="true" name="status" {{isset($registro->status) && $registro->status == 'sim' ? 'checked' : ''}} />
  <label for="filled-in-box">Ativo</label>
  @endif
- <p>
-
-  </p>

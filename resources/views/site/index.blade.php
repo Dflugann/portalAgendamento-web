@@ -12,7 +12,7 @@
               <h5 class="header col s12 light">A agilidade e a possibilidade de agendar a entrada dos vizitantes e acessar informações em tempo real</h5>
             </div>
             <div class="row center">
-              <a href="{{route('site.login')}}" id="download-button" class="btn-large waves-effect waves-light teal lighten-1 pulse">Faça o Login</a>
+              <a href="{{route('site.login')}}" id="download-button" class="btn-large waves-effect waves-light teal lighten-1 ">Faça o Login</a>
             </div>
             @else
           <div class="parallax-container">

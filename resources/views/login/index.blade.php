@@ -21,7 +21,7 @@
           </div>
 
           <div class="center">
-            <button class="btn green pulse">Entrar</button>
+            <button class="btn green">Entrar</button>
           </div>
     </form>
 

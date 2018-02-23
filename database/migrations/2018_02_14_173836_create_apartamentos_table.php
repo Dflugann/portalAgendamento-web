@@ -24,7 +24,7 @@ class CreateApartamentosTable extends Migration
             $table->string('suite');
             $table->string('banh');
             $table->string('area');
-            $table->string('imagem');
+            $table->enum('status',['sim', 'nao'])->default('sim');
             $table->timestamps();
         });
     }

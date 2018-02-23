@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Apartamento extends Model
 {
   protected $fillable = [
-      'conjunto', 'andar', 'numero', 'vaga', 'dorm', 'suite','banheiro', 'email', 'area', 'imagem'
+    'nome_empr', 'id_empr', 'num',  'conjunto', 'andar', 'numero', 'vaga', 'dorm', 'suite','banh', 'email', 'area', 'imagem', 'status'
   ];
-  protected $primaryKey = 'id_apartamento';
+  protected $primaryKey = 'id_apart';
 
 }

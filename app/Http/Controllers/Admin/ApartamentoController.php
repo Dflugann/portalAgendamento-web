@@ -12,39 +12,47 @@ class ApartamentoController extends Controller
     public function index()
     {
         $dados = Apartamento::all();
-        $registros = json_decode($dados);
-        return view('admin.apartamento.index', compact('registros'));
+        $registros_apart = json_decode($dados);
+        return view('admin.apartamento.index', compact('registros_apart'));
     }
 
     public function adicionar()
     {
-      $registros = Empreendimento::all();
-      return view('admin.apartamento.adicionar', compact('registros'));
+      $registros_empreend = Empreendimento::all();
+      return view('admin.apartamento.adicionar', compact('registros_empreend'));
     }
 
     public function salvar(Request $req)
     {
       // $registros = DB::table('empreendimentos')->get();
       $dados = $req->all();
-      $registro = DB::table('empreendimentos')->where('titulo', 'VILLA ALBINO')->value('id_empr');
-      $dados['id_empr'] = $registro;
-      var_dump($dados);exit;
-      if ($req->hasFile('imagem')) {
-        $imagem = $req->file('imagem');
-        $num = rand(1111, 9999);
-        $dir = "img/apartamento";
-        $ex = $imagem->guessClientExtension();
-        $nomeImagem = "imagem_" . "." . $num . "." . $ex;
-        $imagem->move($dir, $nomeImagem);
-        $dados['imagem'] = $dir . "/" . $nomeImagem;
+
+      if (isset($dados['nome_empr'])) {
+        $registro = DB::table('empreendimentos')->where('titulo', $dados['nome_empr'])->value('id_empr');
+        $dados['id_empr'] = $registro;
+      }else {
+        $dados['id_empr'] = '';
       }
 
+      if (isset($dados['status'])) {
+        $dados['status'] = 'sim';
+      }else {
+        $dados['status'] = 'nao';
+      }
       Apartamento::create($dados);
       return redirect()->route('admin.apartamento');
     }
 
-    public function editar(Request $req, $id)
+    public function editar($id)
     {
-
+      $registros_empreend = Empreendimento::all();
+      $registros_apart = Apartamento::find($id);
+      return view('admin.apartamento.editar', compact('registros_empreend','registros_apart'));
     }
+
+    public function brincar($id)
+  {
+    echo $id;
+  }
+
 }

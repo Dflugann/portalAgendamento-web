@@ -10,7 +10,7 @@
      {{csrf_field()}}
      @include('admin.empreendimento._form')
       <div class="center">
-        <button class="btn green pulse">Salvar</button>
+        <button class="btn green ">Salvar</button>
       </div>
    </form>
  </div>

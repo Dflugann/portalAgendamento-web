@@ -118,10 +118,10 @@
 			</li>
 			<hr>
 			<li>
-				<a href="{{route('admin.empreendimento.adicionar')}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Adicionar Empreendimento"><i class="material-icons" style="color: #1B5E20">domain</i> Empreendimento</a>
+				<a href="{{route('admin.apartamento.adicionar')}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Adicionar Apartamento"><i class="material-icons" style="color: #26a69a">location_city</i> Apartamento</a>
 			</li>
 			<li>
-				<a href="{{route('admin.apartamento.adicionar')}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Adicionar Apartamento"><i class="material-icons" style="color: #26a69a">location_city</i> Apartamento</a>
+				<a href="{{route('admin.empreendimento.adicionar')}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Adicionar Empreendimento"><i class="material-icons" style="color: #1B5E20">domain</i> Empreendimento</a>
 			</li>
 			<hr>
 			<li><a href="{{route('admin.apartamento')}}"><i class="material-icons" style="color: green">list</i>Lista Apartamentos</a></li>
