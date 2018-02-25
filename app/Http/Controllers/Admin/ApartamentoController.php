@@ -50,9 +50,31 @@ class ApartamentoController extends Controller
       return view('admin.apartamento.editar', compact('registros_empreend','registros_apart'));
     }
 
-    public function brincar($id)
+    public function atualizar(Request $req, $id)
   {
-    echo $id;
+    $dados = $req->all();
+
+    if (isset($dados['nome_empr'])) {
+      $registro = DB::table('empreendimentos')->where('titulo', $dados['nome_empr'])->value('id_empr');
+      $dados['id_empr'] = $registro;
+    }else {
+      $dados['id_empr'] = '';
+    }
+
+    if (isset($dados['status'])) {
+      $dados['status'] = 'sim';
+    }else {
+      $dados['status'] = 'nao';
+    }
+    Apartamento::find($id)->update($dados);
+    return redirect()->route('admin.apartamento');
   }
+
+  public function deletar($id)
+  {
+    Apartamento::find($id)->delete();
+    return redirect()->route('admin.apartamento');
+  }
+
 
 }

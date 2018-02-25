@@ -3,11 +3,14 @@
     <select name="nome_empr">
 
       <option value="0" disabled selected>Selecione</option>
-      @foreach($registros_empreend as $registro)
+
       @if(isset($registros_apart->nome_empr))
       <option selected value='{{$registros_apart->nome_empr}}' >{{$registros_apart->nome_empr}}</option>";
       @endif
-      <option value='{{$registro->titulo}}' >{{$registro->titulo}}</option>";
+      @foreach($registros_empreend as $registro)
+      @if($registro->status == 'sim')
+      <option value='{{$registro->titulo}}'>{{$registro->titulo}}</option>";
+      @endif
       @endforeach
     </select>
       <label>Empreendimento</label>
@@ -104,4 +107,3 @@
 
 <input type="checkbox" class="filled-in" id="filled-in-box" value="true" name="status" {{isset($registros_apart->status) && ($registros_apart->status) == 'sim' ? 'checked' : ''}}/>
 <label for="filled-in-box">Ativo</label>
-

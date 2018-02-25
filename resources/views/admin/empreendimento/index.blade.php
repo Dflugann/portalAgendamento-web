@@ -28,10 +28,10 @@
           <div class="center">
           <a href="{{route('admin.empreendimento.editar',$registro->id_empr)}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Editar">
             <i class="material-icons" style="font-size:2rem">create</i></a>
-          <a href=""class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Apartamentos">
+          <a href="{{route('admin.empreendimento.search', $registro->id_empr)}}"class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Apartamentos">
             <i class="large material-icons" style="font-size:2rem">view_agenda</i></a>
-          <a href="{{route('admin.empreendimento.deletar', $registro->id_empr)}}"class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Deletar">
-            <i class="large material-icons" style="font-size:2rem">delete_forever</i></a>
+          <!-- <a href="{{route('admin.empreendimento.deletar', $registro->id_empr)}}"class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Deletar">
+            <i class="large material-icons" style="font-size:2rem">delete_forever</i></a> -->
           </div>
         </div>
         <div class="card-reveal">

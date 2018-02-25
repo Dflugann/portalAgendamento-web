@@ -36,7 +36,6 @@
   Route::get('/admin/empreendimento',['as'=>'admin.empreendimento', 'uses'=>'Admin\EmpreendimentoController@index']);
   Route::get('/admin/condomino',['as'=>'admin.condomino', 'uses'=>'Admin\CondominoController@index']);
 
-
 /**ROUTE -- ADICIONAR**/
   Route::get('/admin/visitante/adicionar',['as'=>'admin.visitante.adicionar', 'uses'=>'Admin\VisitanteController@adicionar']);
   Route::get('/admin/operador/adicionar',['as'=>'admin.operador.adicionar', 'uses'=>'Admin\OperadorController@adicionar']);
@@ -44,7 +43,6 @@
   Route::get('/admin/supervisor/adicionar',['as'=>'admin.supervisor.adicionar', 'uses'=>'Admin\SupervisorController@adicionar']);
   Route::get('/admin/apartamento/adicionar',['as'=>'admin.apartamento.adicionar', 'uses'=>'Admin\ApartamentoController@adicionar']);
   Route::get('/admin/empreendimento/adicionar',['as'=>'admin.empreendimento.adicionar', 'uses'=>'Admin\EmpreendimentoController@adicionar']);
-
 
 /**ROUTE -- SALVAR**/
   Route::post('/admin/visitante/salvar',['as'=>'admin.visitante.salvar', 'uses'=>'VisitanteController@salvar']);
@@ -64,11 +62,13 @@
   Route::put('/admin/empreendimento/atualizar/{id}',['as'=>'admin.empreendimento.atualizar', 'uses'=>'admin\EmpreendimentoController@atualizar']);
   Route::put('/admin/apartamento/atualizar/{id}',['as'=>'admin.apartamento.atualizar', 'uses'=>'admin\ApartamentoController@atualizar']);
 
-
-
 /**ROUTE -- DELETAR**/
   Route::get('/admin/visitante/deletar/{id}',['as'=>'admin.visitante.deletar', 'uses'=>'VisitanteController@deletar']);
   Route::get('/admin/operador/deletar/{id}',['as'=>'admin.operador.deletar', 'uses'=>'admin\OperadorController@deletar']);
   Route::get('/admin/empreendimento/deletar/{id}',['as'=>'admin.empreendimento.deletar', 'uses'=>'admin\EmpreendimentoController@deletar']);
-  /**ROUTE -- AUTH === TRUE END**/
+  Route::get('/admin/apartamento/deletar/{id}',['as'=>'admin.apartamento.deletar', 'uses'=>'admin\ApartamentoController@deletar']);
+
+/**ROUTE -- SEARCH**/
+  Route::get('/admin/empreendimento/search/{id}',['as'=>'admin.empreendimento.search', 'uses'=>'admin\EmpreendimentoController@search']);
+
 });

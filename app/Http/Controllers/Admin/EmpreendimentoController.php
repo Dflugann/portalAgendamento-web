@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Empreendimento;
@@ -65,4 +65,11 @@ class EmpreendimentoController extends Controller
       Empreendimento::find($id)->delete($id);
       return redirect()->route('admin.empreendimento');
     }
+
+
+      public function search($id)
+      {
+        $registros_apart = DB::table('apartamentos')->where('id_empr', $id)->get();
+        return view('admin.apartamento.index', compact('registros_apart'));
+      }
 }
