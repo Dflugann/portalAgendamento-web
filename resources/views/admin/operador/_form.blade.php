@@ -30,7 +30,7 @@
 
 <div class="file-field input-file col a12 s12 m12">
   <div class="btn">
-    <span>Imagem</span>
+    <span>Foto</span>
     <input type="file" name="imagem">
   </div>
   <div class="file-path-wrapper">
