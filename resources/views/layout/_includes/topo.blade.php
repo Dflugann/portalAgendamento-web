@@ -124,6 +124,7 @@
 				<a href="{{route('admin.empreendimento.adicionar')}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Adicionar Empreendimento"><i class="material-icons" style="color: #1B5E20">domain</i> Empreendimento</a>
 			</li>
 			<hr>
+			<li><a href="{{route('admin.administrador')}}"><i class="material-icons" style="color: green">list</i>Lista Administradores</a></li>
 			<li><a href="{{route('admin.apartamento')}}"><i class="material-icons" style="color: green">list</i>Lista Apartamentos</a></li>
 			<li><a href="{{route('admin.empreendimento')}}"><i class="material-icons" style="color: green">list</i>Lista Empreendimento</a></li>
 			<li><a href="{{route('admin.operador')}}"><i class="material-icons" style="color: green">list</i>Lista Operador</a></li>

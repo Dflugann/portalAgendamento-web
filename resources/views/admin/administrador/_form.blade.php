@@ -1,33 +1,18 @@
 <div class="row">
-
-  <div class="input-field col s12 m4 l4">
+  <div class="input-field col s12 m12 l12">
     <input name="nome" type="text" value="{{isset($registro->nome) ? $registro->nome : ''}}">
     <label>Nome</label>
   </div>
+</div>
 
-  <div class="input-field col s12 m4 l4">
-    <input name="cpf" type="text"  value="{{isset($registro->cpf) ? $registro->cpf : ''}}">
-    <label>CPF</label>
-  </div>
-
+<div class="row">
   <div class="input-field col s12 m4 l4">
     <input name="phone" type="text"  value="{{isset($registro->phone) ? $registro->phone : ''}}">
     <label>Fone</label>
   </div>
-
-</div>
-
-<div class="row">
-  <div class="input-field col s12 m6 l6">
+  <div class="input-field col s12 m8 l8">
     <input name="email_admin" type="email"  value="{{isset($registro->email) ? $registro->email : ''}}">
     <label for="email">Email</label>
-  </div>
-  <div class="input-field col s12 m6 l6">
-    <select multiple name="nome_empr">
-      <option value="" disabled selected>Selecione empreendimentos para novo administrador</option>
-      <option value=""></option>
-    </select>
-    <label>Empreendimentos</label>
   </div>
 </div>
 

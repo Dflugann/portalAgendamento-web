@@ -5,7 +5,7 @@
 @section('corpo')
 <div class="container">
   <h3 class="center">Adicionar Administrador</h3>
-    <form action="" method="post" enctype="multipart/form-data">
+    <form action="{{route('admin.administrador.salvar')}}" method="post" enctype="multipart/form-data">
       {{csrf_field()}}
       @include('admin.administrador._form')
 

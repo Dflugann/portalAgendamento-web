@@ -35,6 +35,7 @@
   Route::get('/admin/apartamento',['as'=>'admin.apartamento', 'uses'=>'Admin\ApartamentoController@index']);
   Route::get('/admin/empreendimento',['as'=>'admin.empreendimento', 'uses'=>'Admin\EmpreendimentoController@index']);
   Route::get('/admin/condomino',['as'=>'admin.condomino', 'uses'=>'Admin\CondominoController@index']);
+  Route::get('/admin/administrador',['as'=>'admin.administrador', 'uses'=>'Admin\AdministradorController@index']);
 
 /**ROUTE -- ADICIONAR**/
   Route::get('/admin/visitante/adicionar',['as'=>'admin.visitante.adicionar', 'uses'=>'Admin\VisitanteController@adicionar']);
@@ -49,12 +50,14 @@
   Route::post('/admin/operador/salvar',['as'=>'admin.operador.salvar', 'uses'=>'Admin\OperadorController@salvar']);
   Route::post('/admin/empreendimento/salvar',['as'=>'admin.empreendimento.salvar', 'uses'=>'Admin\EmpreendimentoController@salvar']);
   Route::post('/admin/apartamento/salvar',['as'=>'admin.apartamento.salvar', 'uses'=>'Admin\ApartamentoController@salvar']);
+  Route::post('/admin/administrador/salvar',['as'=>'admin.administrador.salvar', 'uses'=>'Admin\AdministradorController@salvar']);
 
 /**ROUTE -- EDITAR**/
   Route::get('/admin/visitante/editar/{id}',['as'=>'admin.visitante.editar', 'uses'=>'VisitanteController@editar']);
   Route::get('/admin/operador/editar/{id}',['as'=>'admin.operador.editar', 'uses'=>'Admin\OperadorController@editar']);
   Route::get('/admin/empreendimento/editar/{id}',['as'=>'admin.empreendimento.editar', 'uses'=>'Admin\EmpreendimentoController@editar']);
   Route::get('/admin/apartamento/editar/{id}',['as'=>'admin.apartamento.editar', 'uses'=>'Admin\ApartamentoController@editar']);
+  Route::get('/admin/administrador/editar/{id}',['as'=>'admin.administrador.editar', 'uses'=>'Admin\AdministradorController@editar']);
 
 /**ROUTE -- ATUALIZAR**/
   Route::put('/admin/visitante/atualizar/{id}',['as'=>'admin.visitante.atualizar', 'uses'=>'VisitanteController@atualizar']);
