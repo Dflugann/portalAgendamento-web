@@ -49,8 +49,27 @@ class AdministradorController extends Controller
 
     public function editar($id)
     {
-        $registros = Administrador::find($id);
-        return view('admin.administrador.editar', compact('registros'));
+        $registro = Administrador::find($id);
+        return view('admin.administrador.editar', compact('registro'));
+    }
+
+    public function atualizar(Request $req, $id)
+    {
+        $dados = $req->all();
+
+        if (isset($dados['status'])){
+            $dados['status'] = 'sim';
+        }else{
+            $dados['status'] = 'nao';
+        }
+        $registros = Administrador::find($id)->update($dados);
+        return redirect()->route('admin.administrador');
+    }
+
+    public function deletar($id)
+    {
+        Administrador::find($id)->delete();
+        return redirect()->route('admin.administrador');
     }
 
 

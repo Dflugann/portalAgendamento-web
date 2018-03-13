@@ -64,12 +64,14 @@
   Route::put('/admin/operador/atualizar/{id}',['as'=>'admin.operador.atualizar', 'uses'=>'admin\OperadorController@atualizar']);
   Route::put('/admin/empreendimento/atualizar/{id}',['as'=>'admin.empreendimento.atualizar', 'uses'=>'admin\EmpreendimentoController@atualizar']);
   Route::put('/admin/apartamento/atualizar/{id}',['as'=>'admin.apartamento.atualizar', 'uses'=>'admin\ApartamentoController@atualizar']);
+  Route::put('/admin/administrador/atualizar/{id}',['as'=>'admin.administrador.atualizar', 'uses'=>'admin\AdministradorController@atualizar']);
 
 /**ROUTE -- DELETAR**/
   Route::get('/admin/visitante/deletar/{id}',['as'=>'admin.visitante.deletar', 'uses'=>'VisitanteController@deletar']);
   Route::get('/admin/operador/deletar/{id}',['as'=>'admin.operador.deletar', 'uses'=>'admin\OperadorController@deletar']);
   Route::get('/admin/empreendimento/deletar/{id}',['as'=>'admin.empreendimento.deletar', 'uses'=>'admin\EmpreendimentoController@deletar']);
   Route::get('/admin/apartamento/deletar/{id}',['as'=>'admin.apartamento.deletar', 'uses'=>'admin\ApartamentoController@deletar']);
+  Route::get('/admin/administrador/deletar/{id}',['as'=>'admin.administrador.deletar', 'uses'=>'admin\AdministradorController@deletar']);
 
 /**ROUTE -- SEARCH**/
   Route::get('/admin/empreendimento/search/{id}',['as'=>'admin.empreendimento.search', 'uses'=>'admin\EmpreendimentoController@search']);

@@ -105,5 +105,10 @@
   </div>
 </div>
 
-<input type="checkbox" class="filled-in" id="filled-in-box" value="true" name="status" {{isset($registros_apart->status) && ($registros_apart->status) == 'sim' ? 'checked' : ''}}/>
-<label for="filled-in-box">Ativo</label>
+@if(isset($registros_apart->status))
+  <input type="checkbox" class="filled-in" id="filled-in-box" value="true" name="status" {{isset($registros_apart->status) && ($registros_apart->status) == 'sim' ? 'checked' : ''}}/>
+  <label for="filled-in-box">Ativo</label>
+@else
+  <input type="checkbox" class="filled-in" id="filled-in-box" value="true" name="status" checked/>
+  <label for="filled-in-box">Ativo</label>
+@endif

@@ -1,7 +1,11 @@
 <div class="row">
-  <div class="input-field col s12 m12 l12">
+  <div class="input-field col s12 m16 l6">
     <input name="nome" type="text" value="{{isset($registro->nome) ? $registro->nome : ''}}">
     <label>Nome</label>
+  </div>
+  <div class="input-field col s12 m16 l6">
+    <input name="sobrenome" type="text" value="{{isset($registro->sobrenome) ? $registro->sobrenome : ''}}">
+    <label>Sobrenome</label>
   </div>
 </div>
 

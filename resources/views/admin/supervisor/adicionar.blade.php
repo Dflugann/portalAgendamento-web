@@ -5,10 +5,14 @@
 @section('corpo')
 <div class="container">
   <h3 class="center">Adicionar Supervisor</h3>
-  <div class="row">
-    <div class="card-panel hoverable center-align">
-      <p><h5 class="red-text">Estamos em desenvolvimento</h5></p>
+  <form class="col s12 m12 l12" action="" method="POST" enctype="multipart/form-data">
+    {{csrf_field()}}
+    @include('admin.supervisor._form')
+
+    <div class="center">
+      <button class="btn green">Enviar</button>
     </div>
-  </div>
+
+  </form>
 </div>
 @endsection
