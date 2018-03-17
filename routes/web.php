@@ -28,6 +28,8 @@
 
   /**ROUTE -- AUTH === TRUE**/
   Route::group(['middleware'=>'auth'], function(){
+    Route::resource('usuario','Admin\UsuarioController');
+    Route::get('admin/home',['as'=>'admin.home','uses'=>'Admin\UsuarioController@home']);
 
 /**ROUTE -- INDEX**/
   Route::get('/admin/visitante',['as'=>'admin.visitante', 'uses'=>'Admin\VisitanteController@index']);

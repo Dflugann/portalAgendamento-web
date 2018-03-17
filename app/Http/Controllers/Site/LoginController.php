@@ -22,7 +22,7 @@ class LoginController extends Controller
     $password = $dados['senha'];
 
     if (Auth::attempt(['email' => $email, 'password' => $password])) {
-             return redirect()->route('site.home');
+             return redirect()->route('admin.home');
         }else {
           return redirect()->route('site.login');
         }

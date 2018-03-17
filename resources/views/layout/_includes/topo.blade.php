@@ -94,7 +94,7 @@
       	<a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a> -->
     	</div>
 		</li>
-			<li><a href="/" class="z-depth-1"><i class="material-icons" style="color: green">home</i> Home</a></li>
+			<li><a href="admin/home" class="z-depth-1"><i class="material-icons" style="color: green">home</i> Home</a></li>
 			@if(Auth::guest())
 			<li>
 				<a href="#" class="tooltipped" data-position="bottom" data-delay="100" data-tooltip="Quem Somos"><i class="material-icons" style="color: #5b5b5d">fingerprint</i>Empresa</a>
@@ -105,16 +105,16 @@
 
 			@else
 			<li>
-				<a href="{{route('admin.administrador.adicionar')}}" class="tooltipped" data-position="bottom" data-delay="100" data-tooltip="Diretor ou Sindico"><i class="material-icons" style="color: #e65100">person_add</i> Administrador</a>
+				<a href="{{route('admin.administrador.adicionar')}}" class="tooltipped" data-position="bottom" data-delay="100" data-tooltip="Novo Usuário"><i class="material-icons" style="color: #7b1fa2">person_add</i> Usuarios</a>
 			</li>
 			<li>
-				<a href="{{route('admin.supervisor.adicionar')}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Supervisor"><i class="material-icons" style="color: #01579b">person_add</i> Supervisor</a>
+				<a href="{{route('admin.supervisor.adicionar')}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Novo Empreendimento"><i class="material-icons" style="color: #2196f3">person_add</i> Empreendimento</a>
 			</li>
 			<li>
-				<a href="{{route('admin.operador.adicionar')}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="operador"><i class="material-icons" style="color: #1B5E20">person_add</i> operador</a>
+				<a href="{{route('admin.operador.adicionar')}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Novo Imóveis"><i class="material-icons" style="color: #4caf50">person_add</i> Imóveis</a>
 			</li>
 			<li>
-				<a href="{{route('admin.visitante.adicionar')}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Visitante e Agenda"><i class="material-icons" style="color: #26a69a">person_add</i> Visitante</a>
+				<a href="{{route('admin.visitante.adicionar')}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Novo Papel"><i class="material-icons" style="color: #e65100">person_add</i> Papeis</a>
 			</li>
 			<hr>
 			<li>
