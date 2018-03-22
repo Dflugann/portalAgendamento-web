@@ -1,6 +1,6 @@
 <div class="row">
   <div class="input-field col s12 m12 l12">
-    <input name="nome" type="text" value="{{isset($registro->nome) ? $registro->nome : ''}}">
+    <input name="name" type="text" value="{{isset($registro->name) ? $registro->name : ''}}">
     <label>Nome</label>
   </div>
 </div>
@@ -11,7 +11,7 @@
     <label>Fone</label>
   </div>
   <div class="input-field col s12 m8 l8">
-    <input name="email_admin" type="email"  value="{{isset($registro->email_admin) ? $registro->email_admin : ''}}">
+    <input name="email" type="email"  value="{{isset($registro->email) ? $registro->email : ''}}">
     <label for="email">Email</label>
   </div>
 </div>
@@ -33,13 +33,13 @@
 
 <div class="row">
 <div class="input-field col s12 m6 l6">
-  <input name="user_admin" type="text" value="{{isset($registro->user_admin) ? $registro->user_admin : ''}}">
+  <input name="user" type="text" value="{{isset($registro->user) ? $registro->user : ''}}">
   <label>Usuario</label>
 </div>
 
 <div class="input-field col s12 m6 l6">
-  <input name="password" type="password"  value="{{isset($registro->password) ? $registro->password : ''}}">
-  <label for="password">Password</label>
+  <input name="password" type="password">
+  <label for="password">Nova Senha</label>
 </div>
 </div>
 
@@ -50,6 +50,3 @@
   <input type="checkbox" class="filled-in" id="filled-in-box" value="true" name="status" checked/>
   <label for="filled-in-box">Ativo</label>
 @endif
-
-  
-

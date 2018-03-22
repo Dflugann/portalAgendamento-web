@@ -52,7 +52,7 @@
 
                 </table>
                 <!-- Scaled in -->
-                <a id="scale-demo" href="{{route('admin.administrador.adicionar')}}" class="btn-floating btn-large scale-transition tooltipped" data-position="bottom" data-delay="50" data-tooltip="Novo Apartamento">
+                <a id="scale-demo" href="{{route('usuario.create')}}" class="btn-floating btn-large scale-transition tooltipped" data-position="bottom" data-delay="50" data-tooltip="Novo Apartamento">
                     <i class="material-icons">add</i>
                 </a>
             </div>

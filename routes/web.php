@@ -27,9 +27,11 @@
   /**ROUTE -- AUTH === FALSE END**/
 
   /**ROUTE -- AUTH === TRUE**/
-  Route::group(['middleware'=>'auth'], function(){
-    Route::resource('usuario','Admin\UsuarioController');
-    Route::get('admin/home',['as'=>'admin.home','uses'=>'Admin\UsuarioController@home']);
+  
+  Route::group(['middleware'=>'auth','prefix' => 'admin'], function(){
+  Route::resource('/usuario','Admin\UsuarioController');
+  Route::get('/usuario/permissao', ['as'=> 'usuario.permissao', 'user' => 'Admin\UsuarioController@permissao']);
+  Route::get('/',['as'=>'admin.home','uses'=>'Admin\UsuarioController@home']);
 
 /**ROUTE -- INDEX**/
   Route::get('/admin/visitante',['as'=>'admin.visitante', 'uses'=>'Admin\VisitanteController@index']);
@@ -74,6 +76,7 @@
   Route::get('/admin/empreendimento/deletar/{id}',['as'=>'admin.empreendimento.deletar', 'uses'=>'admin\EmpreendimentoController@deletar']);
   Route::get('/admin/apartamento/deletar/{id}',['as'=>'admin.apartamento.deletar', 'uses'=>'admin\ApartamentoController@deletar']);
   Route::get('/admin/administrador/deletar/{id}',['as'=>'admin.administrador.deletar', 'uses'=>'admin\AdministradorController@deletar']);
+Route::get('/admin/usuario/deletar/{id}',['as'=>'usuario.deletar', 'uses'=>'admin\UsuarioController@deletar']);
 
 /**ROUTE -- SEARCH**/
   Route::get('/admin/empreendimento/search/{id}',['as'=>'admin.empreendimento.search', 'uses'=>'admin\EmpreendimentoController@search']);

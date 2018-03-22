@@ -16,12 +16,12 @@ class LoginController extends Controller
   }
   public function entrar(Request $req)
   {
-    $dados = $req->all();
+    $dados = $req->all();    
 
-    $email = $dados['email'];
+    $user = $dados['user'];
     $password = $dados['senha'];
 
-    if (Auth::attempt(['email' => $email, 'password' => $password])) {
+    if (Auth::attempt(['user' => $user, 'password' => $password])) {
              return redirect()->route('admin.home');
         }else {
           return redirect()->route('site.login');

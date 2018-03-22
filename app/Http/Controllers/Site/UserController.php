@@ -16,7 +16,7 @@ class UserController extends Controller
     public function entrar(Request $req)
     {
       $dados = $req->all();
-      if (Auth::attempt(['email'=>$dados['email'], 'password'=>$dados['senha']] )) {
+      if (Auth::attempt(['user'=>$dados['user'], 'password'=>$dados['senha']] )) {
         redirect()->route('admin.operador');
       }else {
         redirect()->route('login.home');

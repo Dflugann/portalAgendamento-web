@@ -14,17 +14,17 @@ class UsuarioSeeder extends Seeder
     {
         $dados = [
           'name'=>'Flavio',
+          'phone' => '965459012',
           'email'=>'flavio@gmail.com',
-          'password'=>bcrypt("123456")
-        ];
-        $dados = [
-            'name'=>'Thiago',
-            'email'=>'thiago@groupdigital.com.br',
-            'password'=>bcrypt("123456789")
+          'imagem'=> 'https://media.licdn.com/dms/image/C4D03AQEzvaR_XIZkhg/profile-displayphoto-shrink_200_200/0?e=1524895200&v=alpha&t=ZZHxcxW3JXaPZ5VEIXyPTYp1_QUlnrLybCSyflyOMb8',
+          'user'=>'flaaps',
+          'password'=>bcrypt("123456"),
+          'status'=>'sim',
         ];
 
-        if (User::where('email','=',$dados['email'])->count()) {
-            $usuarios = User::where('email','=',$dados['email'])->first();
+
+        if (User::where('user','=',$dados['user'])->count()) {
+            $usuarios = User::where('user','=',$dados['user'])->first();
             $usuarios->update($dados);
             echo "Usuario alterado!";
         }else {
