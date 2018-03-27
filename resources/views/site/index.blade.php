@@ -1,7 +1,6 @@
 @extends('layout.system')
 
 @section('titulo','Portal Agendamento')
-
 @section('corpo')
 
     @if(Auth::guest())
@@ -21,12 +20,12 @@
           <div class="section white">
             <div class="row container">
               <div class="text-black">
-                 <smail><strong>Bem Vindo!! </strong>{{Auth::user()->name}}</smail>
-               </div><hr>
+                <smail><strong>Bem Vindo!! </strong>{{Auth::user()->name}}</smail>
+              </div><hr>
                <h1 class="header center teal-text text-lighten-2" style="color:#99E271 !important">Portal Agendamento</h1>
-               <div class="row center">
-                 <h5 class="header col s12 light">A agilidade e a possibilidade de agendar a entrada dos vizitantes e acessar informações em tempo real</h5>
-               </div>
+              <div class="row center">
+                <h5 class="header col s12 light">A agilidade e a possibilidade de agendar a entrada dos vizitantes e acessar informações em tempo real</h5>
+              </div>
             </div>
           </div>
           <div class="parallax-container">

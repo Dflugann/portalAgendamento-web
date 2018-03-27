@@ -14,16 +14,15 @@ class CreateVisitantesTable extends Migration
     public function up()
     {
         Schema::create('visitantes', function (Blueprint $table) {
-            $table->increments('id_visitante');
-            $table->char('id_condomino');
+            $table->increments('id');
+            $table->string('id_auth');
             $table->string('nome');
             $table->string('sobrenome');
-            $table->string('cpf');
+            $table->string('rg');
+            $table->string('cpf')->unique();
+            $table->string('email')->unique();
+            $table->string('phone');
             $table->string('imagem');
-            $table->string('condominio');
-            $table->string('apartamento');
-            $table->dateTime('dtentrada');
-            $table->dateTime('dtsaida');
             $table->timestamps();
         });
     }

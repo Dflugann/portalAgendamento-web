@@ -36,17 +36,17 @@
 					@else
 					<td style="color: red">{{$usuario->status}}</td>
 					@endif
-					<td><img width="90" height="90" src="../{{$usuario->imagem}}"></td>
+					<td><img class="responsive-img" width="50" height="50" src="../{{$usuario->imagem}}"></td>
 					<td>
 					
-					<a href="{{route('usuario.edit',$usuario->id)}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Editar">
-					<i class="material-icons" style="font-size:2rem">create</i></a>
+					<!--<a href="{{route('usuario.edit',$usuario->id)}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Editar">
+					<i class="material-icons" style="font-size:2rem">create</i></a>-->
 
 					<a href="{{route('usuario.permissao',$usuario->id)}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Permissões">
 					<i class="material-icons" style="font-size:2rem">lock_outline</i></a>
 
-					<a href="{{route('usuario.deletar', $usuario->id)}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Deletar">
-                    <i class="large material-icons" style="font-size:2rem">delete_forever</i></a>
+					<!--<a href="{{route('usuario.deletar', $usuario->id)}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Deletar">
+                    <i class="large material-icons" style="font-size:2rem">delete_forever</i></a>-->
 
 					</td>
 				</tr>

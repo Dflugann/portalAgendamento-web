@@ -1,14 +1,20 @@
 @extends('layout.system')
 
-@section('titulo', 'Adicionar Visitante')
+@section('titulo', 'Lista Visitante')
 
 @section('corpo')
 <div class="container">
-  <h3 class="center">Adicionar Visitante</h3>
-  <div class="row">
-    <div class="card-panel hoverable center-align">
-      <p><h5 class="red-text">Estamos em desenvolvimento</h5></p>
-    </div>
-  </div>
+  <h3 class="center">Adicionar Visitantes</h3>
+	<form action="{{route('admin.visitante.salvar')}}" method="POST" enctype="multipaart/form-data">
+		{{csrf_field()}}
+		@include('admin.visitante._form')
+
+		<div class="center">
+			<button class="btn green">Enviar</button>	
+		</div>
+	</form>       
+
 </div>
+
+
 @endsection

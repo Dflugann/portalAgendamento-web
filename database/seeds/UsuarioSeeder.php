@@ -13,13 +13,26 @@ class UsuarioSeeder extends Seeder
     public function run()
     {
         $dados = [
-          'name'=>'Flavio',
-          'phone' => '965459012',
-          'email'=>'flavio@gmail.com',
-          'imagem'=> 'https://media.licdn.com/dms/image/C4D03AQEzvaR_XIZkhg/profile-displayphoto-shrink_200_200/0?e=1524895200&v=alpha&t=ZZHxcxW3JXaPZ5VEIXyPTYp1_QUlnrLybCSyflyOMb8',
-          'user'=>'flaaps',
-          'password'=>bcrypt("123456"),
-          'status'=>'sim',
+          [
+            'name'=>'Flavio Santos',
+            'phone' => '11965459012',
+            'email'=>'flavio@gmail.com',
+            'imagem'=> 'img/usuarios/imagem_3739.jpeg',
+            'user'=>'Santos',
+            'password'=>bcrypt("123456"),
+            'status'=>'sim'
+          ],
+
+          [
+            'name'=>'Thiago Valillo',
+            'phone' => '11999999999',
+            'email'=>'thiago@groupdigital.com.br',
+            'imagem'=> 'img/usuarios/imagem_3533.jpeg',
+            'user'=>'Valillo',
+            'password'=>bcrypt("123456789"),
+            'status'=>'sim'
+          ]
+          
         ];
 
 

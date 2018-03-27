@@ -33,13 +33,13 @@
 
 <div class="row">
 <div class="input-field col s12 m6 l6">
-  <input name="user" type="text" value="{{isset($registro->user) ? $registro->user : ''}}">
+  <input placeholder="Usuário" name="user" type="text" value="{{isset($registro->user) ? $registro->user : ''}}">
   <label>Usuario</label>
 </div>
 
 <div class="input-field col s12 m6 l6">
-  <input name="password" type="password">
-  <label for="password">Nova Senha</label>
+  <input placeholder="Password" name="password" type="password">
+  <label for="password">Password</label>
 </div>
 </div>
 

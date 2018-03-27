@@ -16,7 +16,10 @@ class AdministradorController extends Controller
 
     public function adicionar()
     {
-      return view('admin.administrador.adicionar');
+        $caminhos = [
+            ['url'=>'','titulo'=>'Admin']
+        ];
+      return view('admin.administrador.adicionar', compact('caminhos'));
     }
 
     public function salvar(Request $req)

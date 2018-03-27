@@ -16,43 +16,10 @@
 
 	</head>
 	<body>
-
-<!-- COLOQUE A DIV "loading" ACIMA DE TODO O CONTEUDO DO SITE (ABAIXO DA <body>) -->
-
-
-		<!-- <nav>
-			<div class="nav-wrapper green">
-				<a href="#!" class="brand-logo"><img src="{{ asset('img/logo-gdigital.png') }}" alt=""> </a>
-				<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-					<ul class="right hide-on-med-and-down">
-						<li><a href="/">Home</a></li>
-						@if(Auth::guest())
-						@else
-						<li><a href="{{route('admin.condomino')}}">Lista Condomino</a></li>
-						<li><a href="{{route('admin.visitante')}}">Lista Visitante</a></li>
-						<li>
-							<a href="{{route('site.login.sair')}}">
-								<i class="material-icons prefix">clear</i>
-							</a>
-						</li>
-						@endif
-					</ul>
-
-					<ul class="side-nav" id="mobile-demo">
-						<li><a href="/">Home</a></li>
-						@if(Auth::guest())
-						@else
-						<li><a href="{{route('admin.condomino')}}">Lista Condomino</a></li>
-						<li><a href="{{route('admin.visitante')}}">Lista Visitante</a></li>
-						<li>
-							<a href="{{route('site.login.sair')}}">
-								Sair
-							</a>
-						</li>
-						@endif
-					</ul>
-			</div>
-		</nav> -->
+		@if(Auth::guest())
+		@else
+		@include('layout._includes.modalEmpreendimento')
+		@endif
 <div class="nav-wrapper grey darken-2">
 		<a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons" style="font-size:30px;color:#fff">menu</i></a>
 			<div class="row" style="margin-bottom: 0px;">
@@ -94,47 +61,48 @@
       	<a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a> -->
     	</div>
 		</li>
-			<li><a href="{{route('admin.home')}}" class="z-depth-1"><i class="material-icons" style="color: green">home</i> Home</a></li>
-			@if(Auth::guest())
+			
+		@if(Auth::guest())
+			<li><a href="{{route('site.index')}}" class="z-depth-1"><i class="material-icons" style="color: green">home</i> Home</a></li>
 			<li>
 				<a href="#" class="tooltipped" data-position="bottom" data-delay="100" data-tooltip="Quem Somos"><i class="material-icons" style="color: #5b5b5d">fingerprint</i>Empresa</a>
 				<a href="#" class="tooltipped" data-position="bottom" data-delay="100" data-tooltip="Nossos Serviços"><i class="material-icons" style="color: #5b5b5d">fingerprint</i>Serviços</a>
 				<a href="#" class="tooltipped" data-position="bottom" data-delay="100" data-tooltip="Principais Clientes"><i class="material-icons" style="color: #5b5b5d">fingerprint</i>Cliantes</a>
 				<a href="#" class="tooltipped" data-position="bottom" data-delay="100" data-tooltip="Fale Conosco"><i class="material-icons" style="color: #5b5b5d">fingerprint</i>Contato</a>
 			</li>
-
-			@else
+		@else
+			<li><a href="{{route('admin.home')}}" class="z-depth-1"><i class="material-icons" style="color: green">home</i> Home</a></li>
 			<li>
 				<a href="{{route('usuario.create')}}" class="tooltipped" data-position="bottom" data-delay="100" data-tooltip="Novo Usuário"><i class="material-icons" style="color: #7b1fa2">person_add</i> Usuarios</a>
 			</li>
 			<li>
-				<a href="{{route('admin.supervisor.adicionar')}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Novo Empreendimento"><i class="material-icons" style="color: #2196f3">person_add</i> Empreendimento</a>
+				<a href="#empreendimento" class="tooltipped waves-effect modal-trigger" data-position="bottom" data-delay="50" data-tooltip="Novo Empreendimento"><i class="material-icons" style="color: #1B5E20">domain</i> Empreendimento</a>
+
 			</li>
 			<li>
-				<a href="{{route('admin.operador.adicionar')}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Novo Imóveis"><i class="material-icons" style="color: #4caf50">person_add</i> Imóveis</a>
+				<a href="{{route('imovel.create')}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Novo Imóveis"><i class="material-icons" style="color: #4caf50">home</i> Imóveis</a>
 			</li>
 			<li>
-				<a href="{{route('admin.visitante.adicionar')}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Novo Papel"><i class="material-icons" style="color: #e65100">person_add</i> Papeis</a>
+				<a href="{{route('admin.visitante.adicionar')}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Novo Visitante"><i class="material-icons" style="color: #1a237e">person_outline</i> Visitante</a>
 			</li>
 			<hr>
 			<li>
-				<a href="{{route('admin.apartamento.adicionar')}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Adicionar Apartamento"><i class="material-icons" style="color: #26a69a">location_city</i> Apartamento</a>
+				<a href="" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Adicionar Papéis"><i class="material-icons" style="color: #e65100">fingerprint</i> Papeis</a>
 			</li>
 			<li>
-				<a href="{{route('admin.empreendimento.adicionar')}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Adicionar Empreendimento"><i class="material-icons" style="color: #1B5E20">domain</i> Empreendimento</a>
+				<a href="" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Adicionar Permissões"><i class="material-icons" style="color: #607d8b">fingerprint</i> Permissões</a>
 			</li>
 			<hr>
-			<li><a href="{{route('admin.administrador')}}"><i class="material-icons" style="color: green">list</i>Lista Administradores</a></li>
-			<li><a href="{{route('admin.apartamento')}}"><i class="material-icons" style="color: green">list</i>Lista Apartamentos</a></li>
-			<li><a href="{{route('admin.empreendimento')}}"><i class="material-icons" style="color: green">list</i>Lista Empreendimento</a></li>
-			<li><a href="{{route('admin.operador')}}"><i class="material-icons" style="color: green">list</i>Lista Operador</a></li>
-			<li><a href="{{route('admin.visitante')}}"><i class="material-icons" style="color: green">list</i>Lista Visitante</a></li>
+			<li><a href="{{route('usuario.index')}}"><i class="material-icons" style="color: green">list</i>Lista Usuários</a></li>
+			<li><a href="{{route('imovel.index')}}"><i class="material-icons" style="color: green">list</i>Lista Imoveis</a></li>
+			<li><a href="{{route('empreendimento.index')}}"><i class="material-icons" style="color: green">list</i>Lista Empreendimento</a></li>
+			<li><a href="{{route('visitante.index')}}"><i class="material-icons" style="color: green">list</i>Lista Visitante</a></li>
 			<li>
 				<a href="{{route('site.login.sair')}}">
 					<i class="material-icons prefix" style="color:red">clear</i>Sair
 				</a>
 			</li>
-			@endif
+		@endif
   </ul>
 </div>
 <!--start LOAD-->
@@ -153,18 +121,3 @@
 				</div>
 			</div>
 		</div>
-<!--end LOAD-->
-<!--
-<ul class="side-nav" id="mobile-demo">
-	<li><a href="/">Home</a></li>
-	@if(Auth::guest())
-	@else
-	<li><a href="{{route('admin.condomino')}}">Lista Condomino</a></li>
-	<li><a href="{{route('admin.visitante')}}">Lista Visitante</a></li>
-	<li>
-		<a href="{{route('site.login.sair')}}">
-			Sair
-		</a>
-	</li>
-	@endif
-</ul> -->

@@ -28,7 +28,7 @@
               <p>Lista de Empreendimento</p>
             </div>
             <div class="card-action">
-              <a href="#">Visualizar</a>
+              <a href="{{route('empreendimento.index')}}">Visualizar</a>
             </div>
           </div>
         </div>
@@ -39,7 +39,7 @@
               <p>Lista de imoveis</p>
             </div>
             <div class="card-action">
-              <a href="#">Visualizar</a>
+              <a href="{{route('imovel.index')}}">Visualizar</a>
             </div>
           </div>
         </div>
@@ -68,7 +68,7 @@
         <div class="col s12 m4 l4">
           <div class="card blue-grey">
             <div class="card-content white-text">
-              <span class="card-title">Papéis</span>
+              <span class="card-title">Permissões</span>
               <p>Listar papéis do sistema</p>
             </div>
             <div class="card-action">

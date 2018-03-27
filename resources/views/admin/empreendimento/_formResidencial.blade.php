@@ -1,46 +1,40 @@
 <div class="row">
   <div class="input-field col s12 m3 l3">
-    <input name="titulo" placeholder="Titulo" type="text" class="validate" value="{{isset($registro->titulo) ? $registro->titulo : ''}}">
+         <input type="text" class="input-field" value="{{isset($registro->tipo) ? $registro->tipo : 'Residencial'}}" disabled="disabled">
+         <label for="Residencial">Tipo</label>
+         <input type="hidden" name="tipo" value="Residencial">    
+  </div>   
+</div>
+
+<div class="row">
+  <div class="input-field col s12 m3 l3">
+    <input name="titulo"  type="text" class="validate" value="{{isset($registro->titulo) ? $registro->titulo : ''}}">
     <label for="first_name">Titulo</label>
   </div>
-  <div class="input-field col s12 m3 l3">
-    <select name="tipo">
-      @if(isset($registro->tipo))
-        <option selected value="{{isset($registro->tipo) ? $registro->tipo : ''}}" >{{$registro->tipo}} </option>
-      @else
-          <option value="0" disabled selected>Selecione Tipo</option>
-      @endif
 
-      <option value="Comercial">Comercial</option>
-      <option value="Conjunto">Conjunto</option>
-      <option value="Empreendimento">Empreendimento</option>
-      <option value="Torre ">Torre</option>
+  <div class="input-field col s12 m3 l3">
+    <select name="quadra">
+      <option value="0" disabled selected>Selecione Quadra</option>
+        @if(isset($registro->quadra))
+          <option selected  value={{$registro->quadra}}>{{$registro->quadra}}</option>
+        @endif
+        <?php for($i=01; $i < 10 ; $i++) {
+            echo "<option value=$i>$i</option>";
+        }?>
     </select>
-     <label>Tipo</label>
-   </div>
-   <div class="input-field col s12 m3 l3">
-      <select name="quadra">
-        <option value="0" disabled selected>Selecione Quadra</option>
-          @if(isset($registro->quadra))
-            <option selected  value={{$registro->quadra}}>{{$registro->quadra}}</option>
-          @endif
-          <?php for($i=01; $i < 10 ; $i++) {
-              echo "<option value=$i>$i</option>";
-          }?>
-      </select>
       <label>Quadra</label>
    </div>
    <div class="input-field col s12 m3 l3">
-      <select name="bloco">
-        <option value="0" disabled selected>Selecione Bloco</option>
-          @if(isset($registro->bloco))
-            <option selected  value={{$registro->quadra}}>{{$registro->bloco}}</option>
+      <select name="lote">
+        <option value="0" disabled selected>Selecione Lote</option>
+          @if(isset($registro->lote))
+            <option selected  value={{$registro->quadra}}>{{$registro->lote}}</option>
           @endif
           <?php for($i=01; $i < 10 ; $i++) {
             echo "<option value=$i>$i</option>";
           }?>
       </select>
-      <label>Bloco</label>
+      <label>Lote</label>
    </div>
  </div>
  <div class="row">

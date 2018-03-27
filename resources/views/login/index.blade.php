@@ -11,12 +11,12 @@
       {{csrf_field()}}
       <div class="input-field col s12 m6">
             <i class="material-icons prefix">person</i>
-            <input type="text" name="user">
+            <input placeholder="Usuário" type="text" name="user">
             <label >Usuário</label>
           </div>
           <div class="input-field col s12 m6">
             <i class="material-icons prefix">vpn_key</i>
-            <input type="password" name="senha">
+            <input placeholder="Password" type="password" name="senha">
             <label>Password</label>
           </div>
 

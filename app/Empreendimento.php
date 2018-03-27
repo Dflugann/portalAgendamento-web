@@ -13,7 +13,6 @@ class Empreendimento extends Model
   * @var primaryKey (alterar campo ID para id_conjunto)
   */
   protected $fillable = [
-      'titulo', 'tipo','quadra', 'bloco','imagem', 'descricao', 'status'
+       'tipo', 'titulo', 'quadra', 'lote', 'conjunto', 'imagem', 'descricao', 'status'
   ];
-  protected $primaryKey = 'id_empr';
 }
