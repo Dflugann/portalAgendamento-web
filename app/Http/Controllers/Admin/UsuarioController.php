@@ -17,7 +17,7 @@ class UsuarioController extends Controller
     {
         $usuarios = User::all();
         $caminhos = [
-            ['url'=>'/admin/home','titulo'=>'Admin'],
+            ['url'=>'./home','titulo'=>'Admin'],
             ['url'=>'','titulo'=>'Usuários'],
         ];
         return view('admin.usuarios.index',compact('usuarios','caminhos'));

@@ -83,7 +83,7 @@
 				<a href="{{route('imovel.create')}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Novo Imóveis"><i class="material-icons" style="color: #4caf50">home</i> Imóveis</a>
 			</li>
 			<li>
-				<a href="{{route('admin.visitante.adicionar')}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Novo Visitante"><i class="material-icons" style="color: #1a237e">person_outline</i> Visitante</a>
+				<a href="{{route('visita.create')}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Novo Visitante"><i class="material-icons" style="color: #1a237e">person_outline</i> Visitante</a>
 			</li>
 			<hr>
 			<li>
@@ -96,7 +96,7 @@
 			<li><a href="{{route('usuario.index')}}"><i class="material-icons" style="color: green">list</i>Lista Usuários</a></li>
 			<li><a href="{{route('imovel.index')}}"><i class="material-icons" style="color: green">list</i>Lista Imoveis</a></li>
 			<li><a href="{{route('empreendimento.index')}}"><i class="material-icons" style="color: green">list</i>Lista Empreendimento</a></li>
-			<li><a href="{{route('visitante.index')}}"><i class="material-icons" style="color: green">list</i>Lista Visitante</a></li>
+			<li><a href="{{route('visita.index')}}"><i class="material-icons" style="color: green">list</i>Lista Visitante</a></li>
 			<li>
 				<a href="{{route('site.login.sair')}}">
 					<i class="material-icons prefix" style="color:red">clear</i>Sair

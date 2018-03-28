@@ -61,7 +61,7 @@
               <p>Lista de Visitantes</p>
             </div>
             <div class="card-action">
-              <a href="#">Visualizar</a>
+              <a href="{{route('visita.index')}}">Visualizar</a>
             </div>
           </div>
         </div>

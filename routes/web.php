@@ -31,6 +31,8 @@ Route::group(['middleware'=>'auth','prefix' => 'admin'], function(){
   Route::get('/usuario/permissao', ['as'=> 'usuario.permissao', 'user' => 'Admin\UsuarioController@permissao']);
   Route::resource('/usuario','Admin\UsuarioController');
   Route::resource('/imovel','Admin\ImovelController');
+  Route::resource('/visita','Admin\VisitaController');
+  Route::resource('/agenda','Admin\AgendaController');
   
 
 /**ROUTE -- INDEX**/
@@ -57,10 +59,9 @@ Route::group(['middleware'=>'auth','prefix' => 'admin'], function(){
 /**ROUTE -- DELETAR**/
   Route::get('/visitante/deletar/{id}',['as'=>'admin.visitante.deletar', 'uses'=>'VisitanteController@deletar']);
   Route::get('/empreendimento/deletar/{id}',['as'=>'admin.empreendimento.deletar', 'uses'=>'Admin\EmpreendimentoController@deletar']);
-  Route::get('/apartamento/deletar/{id}',['as'=>'admin.apartamento.deletar', 'uses'=>'admin\ApartamentoController@deletar']);
-  Route::get('/administrador/deletar/{id}',['as'=>'admin.administrador.deletar', 'uses'=>'admin\AdministradorController@deletar']);
   Route::get('/usuario/deletar/{id}',['as'=>'usuario.deletar', 'uses'=>'admin\UsuarioController@deletar']);
   Route::get('/imovel/deletar/{id}',['as'=>'imovel.deletar', 'uses'=>'Admin\ImovelController@deletar']);
+  Route::get('/visita/deletar/{id}',['as'=>'visita.deletar', 'uses'=>'Admin\VisitaController@deletar']);
   
 
 /**ROUTE -- SEARCH**/
