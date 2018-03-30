@@ -96,7 +96,7 @@
 			<li><a href="{{route('usuario.index')}}"><i class="material-icons" style="color: green">list</i>Lista Usuários</a></li>
 			<li><a href="{{route('imovel.index')}}"><i class="material-icons" style="color: green">list</i>Lista Imoveis</a></li>
 			<li><a href="{{route('empreendimento.index')}}"><i class="material-icons" style="color: green">list</i>Lista Empreendimento</a></li>
-			<li><a href="{{route('visita.index')}}"><i class="material-icons" style="color: green">list</i>Lista Visitante</a></li>
+			<li><a href="{{route('visita.index')}}"><i class="material-icons" style="color: green">list</i>Lista Visitante</a></li><li><a href="{{route('agenda.index')}}"><i class="material-icons" style="color: green">list</i>Lista Agenda</a></li>
 			<li>
 				<a href="{{route('site.login.sair')}}">
 					<i class="material-icons prefix" style="color:red">clear</i>Sair

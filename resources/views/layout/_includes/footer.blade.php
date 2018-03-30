@@ -14,6 +14,7 @@
     $('.parallax').parallax();
     $('select').material_select();
     $('.modal').modal();
+    $('.scrollspy').scrollSpy();
    
     $('.timepicker').pickatime({
     default: 'now', // Set default time: 'now', '1:30AM', '16:30'

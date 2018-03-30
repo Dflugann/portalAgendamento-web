@@ -69,8 +69,8 @@ class VisitaController extends Controller
      */
     public function show($id)
     {
-        $registro = Visita::find($id);
-        return view('admin.agenda.adicionar', compact('registro'));
+        $registro_visitante = Visita::find($id);
+        return view('admin.agenda.adicionar', compact('registro_visitante'));
     }
 
     /**

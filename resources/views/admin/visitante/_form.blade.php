@@ -30,6 +30,16 @@
 		<label>Fone</label>              
 	</div>
 </div>
+<div class="row">
+	<div class="input-field col s12 m6 l6">
+		<input type="text" name="empresa" value="{{isset($registro->phone) ? $registro->phone : ''}}">
+		<label>Empresa</label>
+	</div>
+	<div class="input-field col s12 m6 l6">
+		<input type="text" name="funcao" value="{{isset($registro->phone) ? $registro->phone : ''}}">
+		<label>Função</label>
+	</div>
+</div>
 <div class="file-field input-field col s12 m6 l6">
      <div class="btn">
        <span>Foto</span>

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Auth;
 use App\Agenda;
 use App\Visita;
 
@@ -20,8 +22,10 @@ class AgendaController extends Controller
             ['url'=> './home', 'titulo'=> 'Admin'],
             ['url'=> '', 'titulo'=> 'Agenda']
         ];
-        $registro = Agenda::all();
-        return view('admin.agenda.index', compact('registro','caminhos'));
+        $registros = DB::table('agendas')->orderBy('date')->get();;
+
+        //$registros = Agenda::all();
+        return view('admin.agenda.index', compact('registros','caminhos'));
     }
 
     /**
@@ -40,9 +44,30 @@ class AgendaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $req)
     {
-        //
+        $dados = $req->all();
+        $visitante = Visita::find($dados['id_visitante']);
+        $dados['nome_visitante'] = $visitante->nome;
+        $dados['id_auth'] = Auth::user()->id;
+        $dados['nome_auth'] = Auth::user()->name;
+
+        if (isset($dados['sautorizacao'])) {
+            $dados['sautorizacao'] = 'sim';
+        }else{
+            $dados['sautorizacao'] = 'nao';
+        }
+
+        if (isset($dados['vmorador'])) {
+            $dados['vmorador'] = 'sim';
+        }else{
+            $dados['vmorador'] = 'nao';
+        }
+        $dados['date'] = date('Y-m-d', strtotime($dados['date']));
+        $dados['starttime'] = $dados['starttime'] . ':00';
+        $dados['endtime'] = $dados['endtime'] . ':00';
+        Agenda::create($dados);
+        return redirect()->route('agenda.index');
     }
 
     /**
@@ -53,8 +78,10 @@ class AgendaController extends Controller
      */
     public function show($id)
     {
-        $registro = Visita::find($id);
-        dd($registro);
+        $registro = Agenda::find($id);
+        $registro_visitante = Visita::find($registro->id_visitante);
+
+        return view('admin.agenda.detalhes', compact('registro_visitante','registro'));
     }
 
     /**

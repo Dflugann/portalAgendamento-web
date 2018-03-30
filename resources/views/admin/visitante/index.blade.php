@@ -10,16 +10,15 @@
   <div class="row">
   	<div class="col12 m12 l12">
 
-            <table class="bordered centered">
+            <table class="highlight responsive-table centered">
               <thead>
                 <tr>
                   <th>Id</th>
                   <th>Nome</th>
-                  <th>Sobrenome</th>
-                  <th>RG</th>
                   <th>CPF</th>
-                  <th>E-mail</th>
                   <th>Fone</th>
+                  <th>Empresa</th>
+                  <th>Função</th>
                   <th>Imagem</th>
                   <th>Ação</th>
                 </tr>
@@ -29,21 +28,20 @@
                 <tr>
                   <td>{{$registro->id}}</td>
                   <td>{{$registro->nome}}</td>
-                  <td>{{$registro->sobrenome}}</td>
-                  <td>{{$registro->rg}}</td>
                   <td>{{$registro->cpf}}</td>
-                  <td>{{$registro->email}}</td>
                   <td>{{$registro->phone}}</td>
+                  <td>{{$registro->empresa}}</td>
+                  <td>{{$registro->funcao}}</td>
                   <td>
-                  	<img width="70" src="../{{$registro->imagem}}" class="responsive-img">
+                  	<img width="40" src="../{{$registro->imagem}}" class="responsive-img">
                   </td>
                   <td>
                     <a href="{{route('visita.edit', $registro->id)}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Editar">
-                      <i class="material-icons" style="font-size:2rem">create</i></a>
+                      <i class="material-icons" style="font-size:20px;">create</i></a>
                     <a href="{{route('visita.show', $registro->id)}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Agendar">
-                      <i class="large material-icons" style="font-size:2rem">view_agenda</i></a>
+                      <i class="large material-icons" style="font-size:20px;">view_agenda</i></a>
                     <a href="{{route('visita.deletar', $registro->id)}}"class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Deletar">
-                      <i class="large material-icons" style="font-size:2rem">delete_forever</i></a>
+                      <i class="large material-icons" style="font-size:20px;">delete_forever</i></a>
                   </td>
                 </tr>
                   @endforeach

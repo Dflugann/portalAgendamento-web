@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Visita extends Model
 {
     protected $fillable = [
-  'id_auth', 'nome','sobrenome', 'rg', 'cpf', 'email', 'phone', 'imagem'
+  'id_auth', 'nome','sobrenome', 'rg', 'cpf', 'email', 'phone', 'empresa', 'funcao', 'imagem'
 	];
 }

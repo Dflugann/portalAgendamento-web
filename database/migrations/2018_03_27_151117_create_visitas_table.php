@@ -22,8 +22,13 @@ class CreateVisitasTable extends Migration
             $table->string('cpf')->unique();
             $table->string('email')->unique();
             $table->string('phone');
+            $table->string('empresa');
+            $table->string('funcao');
             $table->string('imagem');
             $table->timestamps();
+        });
+        Schema::table('visitas', function (Blueprint $table) {
+            
         });
     }
 

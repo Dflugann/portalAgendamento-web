@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Agenda;
 
 class UsuarioController extends Controller
 {
@@ -26,7 +27,8 @@ class UsuarioController extends Controller
 
     public function home()
     {
-        return view('admin.home');
+        $registros = Agenda::all();
+        return view('admin.home', compact('registros'));
     }
 
     public function permissao()
@@ -73,7 +75,7 @@ class UsuarioController extends Controller
             }
             $dados['password'] = bcrypt($dados['password']);
             user::create($dados);
-            return redirect()->route('usuarios.index');
+            return redirect()->route('usuario.index');
             
         } catch (Exception $e) {
             echo "Erro ao salvar USUÁRIO " . $e->getMensage() . '-' . $e->getFile();
@@ -87,8 +89,10 @@ class UsuarioController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
+    {  
+        
+        $registro = User::find($id);
+        return view('admin.usuarios.detalhes', compact('registro'));
     }
 
     /**
