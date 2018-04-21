@@ -14,26 +14,24 @@ class EmpreendimentoController extends Controller
         ['url'=>'./home','titulo'=>'Admin'],
         ['url'=>'','titulo'=>'Empreendimento']
       ];
-      $dados = Empreendimento::all();
-      $registros = json_decode($dados);
+      $registros = Empreendimento::all();
+      
       return view('admin.empreendimento.index', compact('registros','caminhos'));
     }
 
-    public function adicionar($type)
+    public function adicionar()
     {
-      $type = $type;
-      return view('admin.empreendimento.adicionar', compact('type'));
+      return view('admin.empreendimento.adicionar');
     }
 
     public function salvar(Request $req)
     {
       $dados = $req->all();
-
-      if(isset($dados['status'])){$dados['status'] = 'sim';}else {$dados['status'] = 'nao';}
-      if(isset($dados['quadra'])){$dados['quadra'] = $dados['quadra'];}else {$dados['quadra'] = '';}
-      if(isset($dados['lote'])){$dados['lote'] = $dados['lote'];}else {$dados['lote'] = '';}
-      if(isset($dados['conjunto'])){$dados['conjunto'] = $dados['conjunto'];}else {$dados['conjunto'] = '';}
-      if(isset($dados['tipo'])){$dados['tipo'] = $dados['tipo'];}else {$dados['tipo'] = '';}
+      if (isset($dados['status'])) {
+        $dados['status'] = 'sim';
+      }else{
+        $dados['status'] = 'nao';
+      }
 
       if ($req->hasFile('imagem')) {
         $imagem = $req->file('imagem');
@@ -87,11 +85,24 @@ class EmpreendimentoController extends Controller
       {
         $caminhos = [
         ['url'=>'../.././home','titulo'=>'Admin'],
-        ['url'=>'#','titulo'=>'Imovel']
+        ['url'=>'#','titulo'=>'Empreendimento-Imovel']
       ];
-        $dados = Empreendimento::find($id);
-        $titulo = $dados['titulo'];
-        $registros = DB::table('imovels')->where('nome_empr', $titulo)->get();
-        return view('admin.imovel.index', compact('registros', 'caminhos'));
+        $imoveis = DB::table('imovels')->where('id_empreendimento', $id)->get();
+        $enderecos = DB::table('enderecos')->where('id_empreendimento', $id)->get();
+        
+        $users = DB::table('imovels')
+            ->join('enderecos', 'enderecos.id_empreendimento', '=', 'imovels.id_empreendimento')
+            ->select('id_imoveis')
+            ->get($id);
+
+            foreach ($users as $key) {
+             
+              var_dump($key);
+            }
+        dd($users);
+
+        return view('admin.empreendimento.empreendimento_imovel', compact('imoveis', 'enderecos', 'caminhos'));
       }
+
+      
 }

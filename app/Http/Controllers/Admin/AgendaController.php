@@ -47,7 +47,7 @@ class AgendaController extends Controller
     public function store(Request $req)
     {
         $dados = $req->all();
-        $visitante = Visita::find($dados['id_visitante']);
+        $visitante = DB::table('visitas')->where('id', $dados['id_visitante'])->first();;
         $dados['nome_visitante'] = $visitante->nome;
         $dados['id_auth'] = Auth::user()->id;
         $dados['nome_auth'] = Auth::user()->name;
@@ -66,7 +66,11 @@ class AgendaController extends Controller
         $dados['date'] = date('Y-m-d', strtotime($dados['date']));
         $dados['starttime'] = $dados['starttime'] . ':00';
         $dados['endtime'] = $dados['endtime'] . ':00';
-        Agenda::create($dados);
+
+        $agenda = Agenda::create($dados);
+        $id_agenda = $agenda->id;        
+        $qrcode = new QrcodeController;
+        $qrcode->store($dados, $id_agenda);
         return redirect()->route('agenda.index');
     }
 
@@ -117,4 +121,5 @@ class AgendaController extends Controller
     {
         //
     }
+
 }

@@ -22,6 +22,13 @@
   Route::post('/login/entrar',['as'=>'site.login.entrar', 'uses'=>'Site\LoginController@entrar']);
   /**ROUTE -- AUTH === FALSE END**/
 
+  Route::get('/email/visitante', function(){
+    return view('admin.email_visitante');
+  });
+  Route::get('/teste', function(){
+    return view('teste');
+  });
+
   /**ROUTE -- AUTH === TRUE**/
   
 Route::group(['middleware'=>'auth','prefix' => 'admin'], function(){
@@ -33,6 +40,9 @@ Route::group(['middleware'=>'auth','prefix' => 'admin'], function(){
   Route::resource('/imovel','Admin\ImovelController');
   Route::resource('/visita','Admin\VisitaController');
   Route::resource('/agenda','Admin\AgendaController');
+  Route::resource('/qrcode','Admin\QrcodeController');
+
+  Route::get('agenda/qrcode',['as'=>'agenda.qrcode', 'uses'=>'Admin\AgendaController@qrcode']);
   
 
 /**ROUTE -- INDEX**/
@@ -41,7 +51,7 @@ Route::group(['middleware'=>'auth','prefix' => 'admin'], function(){
 
 /**ROUTE -- ADICIONAR**/
   Route::get('/visitante/adicionar',['as'=>'admin.visitante.adicionar', 'uses'=>'Admin\VisitanteController@adicionar']);
-  Route::get('/empreendimento/adicionar/{type}',['as'=>'empreendimento.adicionar', 'uses'=>'Admin\EmpreendimentoController@adicionar']);
+  Route::get('/empreendimento/adicionar',['as'=>'empreendimento.adicionar', 'uses'=>'Admin\EmpreendimentoController@adicionar']);
 
 /**ROUTE -- SALVAR**/
   Route::post('/visitante/salvar',['as'=>'admin.visitante.salvar', 'uses'=>'Admin\VisitanteController@salvar']);
@@ -61,10 +71,12 @@ Route::group(['middleware'=>'auth','prefix' => 'admin'], function(){
   Route::get('/empreendimento/deletar/{id}',['as'=>'admin.empreendimento.deletar', 'uses'=>'Admin\EmpreendimentoController@deletar']);
   Route::get('/usuario/deletar/{id}',['as'=>'usuario.deletar', 'uses'=>'admin\UsuarioController@deletar']);
   Route::get('/imovel/deletar/{id}',['as'=>'imovel.deletar', 'uses'=>'Admin\ImovelController@deletar']);
-  Route::get('/visita/deletar/{id}',['as'=>'visita.deletar', 'uses'=>'Admin\VisitaController@deletar']);
-  
+  Route::get('/visita/deletar/{id}',['as'=>'visita.deletar', 'uses'=>'Admin\VisitaController@deletar']); 
 
 /**ROUTE -- SEARCH**/
-  Route::get('/empreendimento/filterImovel/{titulo}',['as'=>'admin.empreendimento.filterImovel', 'uses'=>'Admin\EmpreendimentoController@filterImovel']);
+  Route::get('/empreendimento/filterImovel/{id}',['as'=>'admin.empreendimento.filterImovel', 'uses'=>'Admin\EmpreendimentoController@filterImovel']);
 
+  Route::get('/testemail', ['as'=> 'testemail', 'uses'=> 'Admin\TesteMailController@index']);
+  Route::get('/phpmail', ['as' => 'phpmail', 'uses' => 'Admin\PhpMailController@index']);
+  Route::post('/testemail/enviar', ['as'=> 'testemail.enviar', 'uses'=> 'Admin\TesteMailController@enviar']);
 });

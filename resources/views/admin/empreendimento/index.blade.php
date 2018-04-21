@@ -17,17 +17,10 @@
           </div>
           
         </div>
-        <div class="card-content">
+        <div class="card-content" style="height: 141px;">
           <span class="card-title activator grey-text text-darken-4 center">{{$registro->titulo}}<i class="material-icons right">more_vert</i></span>
 
           <div class="center-align">
-
-            <?php if ($registro->tipo == 'Residencial'): ?>
-              <p><strong>Quadra:</strong> {{$registro->quadra}}
-              <strong>Lote:</strong> {{$registro->lote}}</p>
-            <?php else: ?>
-                <p><strong>Conjunto:</strong> {{$registro->conjunto}}</p>
-            <?php endif ?>
 
             @if(isset($registro->status) && ($registro->status) == 'sim')
               <small><strong style='color: green'>ATIVO</strong></small>
@@ -38,23 +31,23 @@
           </div>
           <!-- <p><a href="#"><i class="material-icons"></i> This is a link</a></p> -->
           <div class="center">
-          <a href="{{route('admin.empreendimento.editar',$registro->id)}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Editar">
+          <a href="{{route('admin.empreendimento.editar',$registro->id_empreendimento)}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Editar">
             <i class="material-icons" style="font-size:2rem">create</i></a>
-          <a href="{{route('admin.empreendimento.filterImovel', $registro->id)}}"class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imóveis">
+          <a href="{{route('admin.empreendimento.filterImovel', $registro->id_empreendimento)}}"class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Imóveis">
             <i class="large material-icons" style="font-size:2rem">view_agenda</i></a>
-          <a href="{{route('admin.empreendimento.deletar', $registro->id)}}"class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Deletar">
+          <a href="{{route('admin.empreendimento.deletar', $registro->id_empreendimento)}}"class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Deletar">
             <i class="large material-icons" style="font-size:2rem">delete</i></a>
           </div>
         </div>
         <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">{{$registro->tipo}}<i class="material-icons right">close</i></span>
+          <span class="card-title grey-text text-darken-4">{{$registro->titulo}}<i class="material-icons right">close</i></span>
           <p>{{$registro->descricao}}</p>
         </div>
       </div>
       @endforeach
     </div>
     
-    <a id="scale-demo" href="#empreendimento" class="btn-floating btn-large scale-transition tooltipped waves-effect modal-trigger" data-position="bottom" data-delay="50" data-tooltip="Novo Conjunto">
+    <a id="scale-demo" href="{{route('empreendimento.adicionar')}}" class="btn-floating btn-large scale-transition tooltipped waves-effect modal-trigger" data-position="bottom" data-delay="50" data-tooltip="Novo Conjunto">
       <i class="material-icons">add</i>
     </a>
   </div>

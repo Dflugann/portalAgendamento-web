@@ -14,15 +14,11 @@ class CreateImovelsTable extends Migration
     public function up()
     {
         Schema::create('imovels', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('nome_empr');
-            $table->string('andar');
-            $table->string('num');
+            $table->increments('id_imovel');
+            $table->string('id_empreendimento');
+            $table->string('tipo');
             $table->string('vaga');
-            $table->string('dorm');
-            $table->string('suite');
-            $table->string('banh');
-            $table->string('area');
+            $table->string('descricao');
             $table->enum('status',['sim', 'nao'])->default('sim');
             $table->timestamps();
         });

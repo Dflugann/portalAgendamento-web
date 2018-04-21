@@ -8,6 +8,7 @@
 		<h3 class="center">
 			Lista Agenda
 		</h3>
+		
 		<div class="row">
 			<table class="highlight centered ">
 				<thead>
@@ -46,10 +47,12 @@
 			                  	<i class="material-icons" style="font-size:2rem; color:green; ">new_releases</i></a>	
 								
 							<?php endif ?>
+			                <a href="{{route('qrcode.show', $registro->id)}}"class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="QRcode">
+			            	    <i class="large material-icons" style="font-size:2rem">texture</i></a>
+
 			                <a href="{{route('agenda.show', $registro->id)}}" class="tooltipped waves-effect modal-trigger" data-position="bottom" data-delay="50" data-tooltip="Detalhes">
 			                	<i class="large material-icons" style="font-size:2rem">view_agenda</i></a>
-			                <!--<a href="{{route('visita.deletar', $registro->id)}}"class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Deletar">
-			            	    <i class="large material-icons" style="font-size:2rem">delete_forever</i></a>-->
+
 			            </td>
 					</tr>
 					@endforeach

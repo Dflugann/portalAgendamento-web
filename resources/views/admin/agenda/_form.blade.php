@@ -66,7 +66,7 @@
 <div class="left-align"><small class="red-text text-darken-2"><strong>Agendamento</strong></small></div>
 <div class="row" style="{{isset($registro) ? 'background: #e0e0e0; border: 1px #000 solid;' : '' }}">
 	
-		<div class="col s12 m6 l6">
+		<div class="col s12 m3 l3">
 			@if(isset($registro->date))
 			<label>Data</label>
 			<p style="color: red;">

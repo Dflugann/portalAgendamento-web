@@ -12,7 +12,8 @@ class Empreendimento extends Model
   * @var fillable (valida os campos da tabela empreendimentos)
   * @var primaryKey (alterar campo ID para id_conjunto)
   */
-  protected $fillable = [
-       'tipo', 'titulo', 'quadra', 'lote', 'conjunto', 'imagem', 'descricao', 'status'
+  	protected $fillable = [
+       'titulo', 'descricao', 'imagem', 'status'
   ];
+  	protected $primaryKey = 'id_empreendimento';
 }

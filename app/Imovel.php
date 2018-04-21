@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Imovel extends Model
 {
     protected $fillable = [
-    'nome_empr', 'andar', 'num', 'vaga', 'dorm', 'suite', 'banh', 'area', 'status'
+    'id_empreendimento', 'tipo', 'vaga', 'descricao', 'status'
   ];
+  	protected $primaryKey = 'id_imovel';
 }

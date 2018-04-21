@@ -14,30 +14,64 @@
               <thead>
                 <tr>
                   <th>Id</th>
-                  <th>Emprendimento</th>
+                  <th>Bloco</th>
                   <th>Andar</th>
-                  <th>Numero</th>
+                  <th>Apto</th>
+                  <th>Quadra</th>
+                  <th>Num/Lote</th>
+                  <th>Conjunto</th>
                   <th>Vaga</th>
-                  <th>Dormitorio</th>
-                  <th>Suite</th>
-                  <th>Banheiro</th>
-                  <th>Area</th>
-                  <th>status</th>
-                  <th>Ação</th>
+                  <th>Descricao</th>
+                  <th>Status</th>
                 </tr>
               </thead>
               <tbody>
                   @foreach($registros as $registro)
                 <tr>
-                  <td>{{$registro->id}}</td>
-                  <td>{{$registro->nome_empr}}</td>
+                  @if(($registro->id_imovel) == 'null')
+                  <td style="color: red;">{{$registro->id_imovel}}</td>
+                  @else
+                  <td>{{$registro->id_imovel}}</td>
+                  @endif
+
+                  @if(($registro->bloco) == 'null')
+                  <td style="color: red;">{{$registro->bloco}}</td>
+                  @else
+                  <td>{{$registro->bloco}}</td>
+                  @endif
+                  
+                  @if(($registro->andar) == 'null')
+                  <td style="color: red;">{{$registro->andar}}</td>
+                  @else
                   <td>{{$registro->andar}}</td>
-                  <td>{{$registro->num}}</td>
+                  @endif
+
+                  @if(($registro->apto) == 'null')
+                  <td style="color: red;">{{$registro->apto}}</td>
+                  @else
+                  <td>{{$registro->apto}}</td>
+                  @endif                  
+
+                  @if(($registro->quadra) == 'null')
+                  <td style="color: red;">{{$registro->quadra}}</td>
+                  @else
+                  <td>{{$registro->quadra}}</td>
+                  @endif
+
+                  @if(($registro->numLote) == 'null')
+                  <td style="color: red;">{{$registro->numLote}}</td>
+                  @else
+                  <td>{{$registro->numLote}}</td>
+                  @endif
+
+                  @if(($registro->conjunto) == 'null')
+                  <td style="color: red;">{{$registro->conjunto}}</td>
+                  @else
+                  <td>{{$registro->conjunto}}</td>
+                  @endif                  
+                  
                   <td>{{$registro->vaga}}</td>
-                  <td>{{$registro->dorm}}</td>
-                  <td>{{$registro->suite}}</td>
-                  <td>{{$registro->banh}}</td>
-                  <td>{{$registro->area}}</td>
+                  <td>{{$registro->descricao}}</td>
                   <td>
                     @if(isset($registro->status) && ($registro->status) == 'sim')
                       <small><strong style='color: green'>ATIVO</strong></small>
@@ -46,12 +80,14 @@
                     @endif
                   </td>
                   <td>
-                    <a href="{{route('imovel.edit', $registro->id)}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Editar">
-                      <i class="material-icons" style="font-size:2rem">create</i></a>
-                    <a href="#" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Visitantes">
-                      <i class="large material-icons" style="font-size:2rem">view_agenda</i></a>
-                    <a href="{{route('imovel.deletar', $registro->id)}}"class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Deletar">
-                      <i class="large material-icons" style="font-size:2rem">delete_forever</i></a>
+                    <a href="{{route('imovel.edit', $registro->id_imovel)}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Editar">
+                      <i class="material-icons" style="font-size:1rem">create</i></a>
+
+                    <a href="{{route('imovel.show', $registro->id_imovel)}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Detalhes">
+                      <i class="large material-icons" style="font-size:1rem">view_agenda</i></a>
+
+                    <a href="{{route('imovel.deletar', $registro->id_imovel)}}"class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Deletar">
+                      <i class="large material-icons" style="font-size:1rem">delete_forever</i></a>
                   </td>
                 </tr>
                   @endforeach

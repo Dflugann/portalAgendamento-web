@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Empreendimento;
 use App\Imovel;
+Use App\Endereco;
 
 class ImovelController extends Controller
 {
@@ -21,8 +22,12 @@ class ImovelController extends Controller
             ['url'=>'./home','titulo'=>'Admin'],
             ['url'=>'','titulo'=>'Imóveis'],
         ];
-        $dados = Imovel::all();
+        $dados = DB::table('enderecos')
+        ->join('imovels', 'enderecos.id_imoveis', '=', 'imovels.id_imovel')
+        ->select('imovels.id_imovel as enderecos.id_imoveis', '*')
+        ->get();
         $registros = json_decode($dados);
+
         return view('admin.imovel.index', compact('registros','caminhos'));
     }
 
@@ -34,6 +39,7 @@ class ImovelController extends Controller
     public function create()
     {
         $registros_empr = Empreendimento::all();
+
         
         return view('admin.imovel.adicionar', compact('registros_empr'));
     }
@@ -46,9 +52,19 @@ class ImovelController extends Controller
      */
     public function store(Request $req)
     {
-        $dados = $req->all();
-      if (isset($dados['nome_empr'])) {
-        $registro = DB::table('empreendimentos')->where('titulo', $dados['nome_empr'])->value('titulo');
+
+        $dados = $req->all();               
+        if ($dados['tipo'] == 'comercial') {
+            $dados['bloco']     = $dados['blocoComercial'];
+            $dados['andar']     = $dados['andarComercial'];
+            $dados['vaga']      = $dados['vagaComercial'];
+            $dados['descricao'] = $dados['descricaoComercial'];
+        }elseif ($dados['tipo'] == 'vertical') {
+            $dados['descricao'] = $dados['descricaoVertical'];
+        }
+
+      if (isset($dados['id_empreendimento'])) {
+        $registro = DB::table('empreendimentos')->where('id_empreendimento', $dados['id_empreendimento'])->value('titulo');
         $dados['nome_empr'] = $registro;
       }else {
         $dados['nome_empr'] = '';
@@ -59,8 +75,32 @@ class ImovelController extends Controller
       }else {
         $dados['status'] = 'nao';
       }
-      Imovel::create($dados);
-      return redirect()->route('imovel.index');
+
+        $dados_tb_imovel = array(
+            'id_empreendimento' => $dados['id_empreendimento'],
+            'tipo' => $dados['tipo'], 
+            'vaga' => $dados['vaga'],
+            'descricao' => $dados['descricao'],
+            'status' => $dados['status']//tb_imoveis
+        );
+        Imovel::create($dados_tb_imovel);
+        $imovel = Imovel::all();
+        $id = $imovel->last();
+
+        //Imovel::create($dados_tb_imovel);
+        $dados_tb_endereco = array(
+            'id_empreendimento' => $dados['id_empreendimento'],
+            'id_imoveis' => (($id->id_imovel) ? $id->id_imovel : 'null') ,
+            'bloco' => (($dados['bloco']) ? $dados['bloco'] : 'null'),
+            'andar' => (($dados['andar']) ? $dados['andar'] : 'null'),
+            'apto' => (($dados['apto']) ? $dados['apto'] : 'null'),
+            'quadra' => (($dados['quadra']) ? $dados['quadra'] : 'null'),
+            'numLote' => (($dados['numLote']) ? $dados['numLote'] : 'null'),
+            'conjunto' => (($dados['conjunto']) ? $dados['conjunto'] : 'null')//tb_endereco
+        );
+        
+        Endereco::create($dados_tb_endereco);
+        return redirect()->route('imovel.index');
     }
 
     /**
@@ -71,7 +111,12 @@ class ImovelController extends Controller
      */
     public function show($id)
     {
-        //
+        $imovel = Imovel::find($id);
+        $endereco = Endereco::find($id);
+        $id_empreendimento = $imovel->id_empreendimento;
+        $empreendimento = Empreendimento::find($id_empreendimento);
+        
+        return view('admin.imovel.detalhe', compact('imovel', 'endereco', 'empreendimento'));   
     }
 
     /**
@@ -89,7 +134,10 @@ class ImovelController extends Controller
         ];
         $registros_empr = Empreendimento::all();
         $registros = Imovel::find($id);
-        return view('admin.imovel.editar', compact('registros','registros_empr','caminhos'));
+        $endereco = Endereco::find($id);
+
+        $empreendimento = Empreendimento::find($registros['id_empreendimento']);
+        return view('admin.imovel.editar', compact('registros','registros_empr','caminhos','empreendimento','endereco'));
     }
 
     /**
@@ -100,21 +148,45 @@ class ImovelController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $req, $id)
-    {
+    {  
         $dados = $req->all();
-      if (isset($dados['nome_empr'])) {
-        $registro = DB::table('empreendimentos')->where('titulo', $dados['nome_empr'])->value('titulo');
-        $dados['nome_empr'] = $registro;
-      }else {
-        $dados['nome_empr'] = '';
-      }
+        if (isset($dados['blocoComercial'])) {
+            $dados['bloco']     = $dados['blocoComercial'];
+            $dados['andar']     = $dados['andarComercial'];
+            $dados['vaga']      = $dados['vagaComercial'];
+            $dados['descricao'] = $dados['descricaoComercial'];
+        }elseif (isset($dados['descricaoVertical'])) {
+            $dados['descricao'] = $dados['descricaoVertical'];
+        }
+        
 
       if (isset($dados['status'])) {
         $dados['status'] = 'sim';
       }else {
         $dados['status'] = 'nao';
       }
-        Imovel::find($id)->update($dados);
+
+        $dados_tb_imovel = array(
+            'vaga' => $dados['vaga'],
+            'descricao' => $dados['descricao'],
+            'status' => $dados['status']//tb_imoveis
+        );  
+        Imovel::find($id)->update($dados_tb_imovel);
+        //$imovel = Imovel::all();
+        //$id = $imovel->last();
+
+        //Imovel::create($dados_tb_imovel);
+        $dados_tb_endereco = array(
+            //'id_imoveis' => (($id->id_imovel) ? $id->id_imovel : 'null') ,
+            'bloco' => ((isset($dados['bloco'])) ? $dados['bloco'] : 'null'),
+            'andar' => ((isset($dados['andar'])) ? $dados['andar'] : 'null'),
+            'apto' => ((isset($dados['apto'])) ? $dados['apto'] : 'null'),
+            'quadra' => ((isset($dados['quadra'])) ? $dados['quadra'] : 'null'),
+            'numLote' => ((isset($dados['numLote'])) ? $dados['numLote'] : 'null'),
+            'conjunto' => ((isset($dados['conjunto'])) ? $dados['conjunto'] : 'null')//tb_endereco
+        );
+        
+        Endereco::find($id)->update($dados_tb_endereco);
         return redirect()->route('imovel.index');
     }
 
@@ -126,6 +198,7 @@ class ImovelController extends Controller
      */
     public function deletar($id)
     {
+        Endereco::find($id)->delete();
         Imovel::find($id)->delete();
         return redirect()->route('imovel.index');
     }

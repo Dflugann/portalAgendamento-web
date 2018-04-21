@@ -9,11 +9,7 @@
    <form class="col s12 m12 l12" method="POST" action="{{route('admin.empreendimento.salvar')}}" enctype="multipart/form-data">
      {{csrf_field()}}
 
-     @if($type === 'Comercial')
-     @include('admin.empreendimento._formComercial')
-     @else
-     @include('admin.empreendimento._formResidencial')
-     @endif
+     @include('admin.empreendimento._form')
 
       <div class="center">
         <button class="btn green ">Salvar</button>

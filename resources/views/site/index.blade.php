@@ -8,7 +8,7 @@
         <div class="container">
           <h1 class="header center teal-text text-lighten-2" style="color:#99E271 !important">Portal Agendamento</h1>
             <div class="row center">
-              <h5 class="header col s12 light">A agilidade e a possibilidade de agendar a entrada dos vizitantes e acessar informações em tempo real</h5>
+              <h5 class="header col s12 light">A agilidade e a possibilidade de agendar a entrada dos visitantes e acessar informações em tempo real</h5>
             </div>
             <div class="row center">
               <a href="{{route('site.login')}}" id="download-button" class="btn-large waves-effect waves-light teal lighten-1 ">Faça o Login</a>
@@ -24,7 +24,7 @@
               </div><hr>
                <h1 class="header center teal-text text-lighten-2" style="color:#99E271 !important">Portal Agendamento</h1>
               <div class="row center">
-                <h5 class="header col s12 light">A agilidade e a possibilidade de agendar a entrada dos vizitantes e acessar informações em tempo real</h5>
+                <h5 class="header col s12 light">A agilidade e a possibilidade de agendar a entrada dos visitantes e acessar informações em tempo real</h5>
               </div>
             </div>
           </div>

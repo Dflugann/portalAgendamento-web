@@ -76,7 +76,7 @@
 				<a href="{{route('usuario.create')}}" class="tooltipped" data-position="bottom" data-delay="100" data-tooltip="Novo Usuário"><i class="material-icons" style="color: #7b1fa2">person_add</i> Usuarios</a>
 			</li>
 			<li>
-				<a href="#empreendimento" class="tooltipped waves-effect modal-trigger" data-position="bottom" data-delay="50" data-tooltip="Novo Empreendimento"><i class="material-icons" style="color: #1B5E20">domain</i> Empreendimento</a>
+				<a href="{{route('empreendimento.adicionar')}}" class="tooltipped waves-effect modal-trigger" data-position="bottom" data-delay="50" data-tooltip="Novo Empreendimento"><i class="material-icons" style="color: #1B5E20">domain</i> Empreendimento</a>
 
 			</li>
 			<li>
