@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AuthRequest;
 use App\User;
 use App\Agenda;
 
@@ -53,10 +54,9 @@ class UsuarioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $req)
+    public function store(AuthRequest $req)
     {
         try {
-
             $dados = $req->all();
             if (isset($dados['status'])){
                 $dados['status'] = 'sim';
@@ -73,13 +73,19 @@ class UsuarioController extends Controller
                 $imagem->move($dir, $nomeImagem);
                 $dados['imagem'] = $dir . '/' . $nomeImagem;
             }
+            if (isset($dados['imagem'])){
+                $dados['imagem'] = $dados['imagem'];
+            }else{
+                $dados['imagem'] = '';
+            }
+
             $dados['password'] = bcrypt($dados['password']);
             user::create($dados);
             return redirect()->route('usuario.index');
             
         } catch (Exception $e) {
             echo "Erro ao salvar USUÁRIO " . $e->getMensage() . '-' . $e->getFile();
-        }
+            }
     }
 
     /**

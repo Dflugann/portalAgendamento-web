@@ -1,90 +1,138 @@
-<!DOCTYPE html>
-<html>
-<head>
-	
-	<style type="text/css">
-.hide
-{
-   display: none;
-}
-	</style>
-	<title></title>
-</head>
-<body>
+@extends('layout.system')
 
+@section('titulo', 'Adicionar Usuario')
 
-<h1>Formulario de Inscrição</h1>
-<form name="incrição">
-    <b>Nome Completo:</b></br> <input type="text" size="100" placeholder="Digite seu nome completo" required></br></br>
-    <b>Endereço:</b></br> <input type="text" size="100" placeholder="Digite seu endereço - Rua ******** ***** ****** Nº***" required></br></br>
-    <b>Telefone:</b></br> <input type="text" size="100" placeholder="(DDD) 9XXXX -XXXX" required maxlength="12" >
-    </br></br>
-    <b>Incrição para o campeonato de:</b></br>
-    <select name="Inscricao" id="selecionar">
-        <option value="">Selecionar...</option>
-        <option data-section="cosplay" value="Cosplay">Cosplay</option>
-        <option data-section="smite" value="Smite">Smite</option>
-        <option data-section="k-pop" value="K-pop">K-Pop</option>
-        <option data-section="bey-blade" value="Bey Blade">Bey Blade</option>
-        <option data-section="just-dance" value="Just Dance">Just Dance</option>
-        <option data-section="quadribol" value="Quadribol">Quadribol Terrestre</option>
-        <option data-section="anime-quiz" value="Anime Quiz">Anime Quiz<option>
-        <option data-section="desenho" value="Desenho">Competição de Desenho</option>
-    </select>
-
-    <div data-name="cosplay" class="hide">
-        Campos cosplay: <input type="text" value=""><br>
-        Campos Teste: <input type="text" value=""><br>
+@section('corpo')
+    <div class="container">
+        <h3 class="center">Teste</h3>
+        <form class="formValidate" id="formValidate" method="get" action="" novalidate="novalidate">
+            <div class="row">
+                <div class="input-field col s12">
+                    <label for="uname">Username*</label>
+                    <input id="uname" name="uname" type="text" data-error=".errorTxt1">
+                    <div class="errorTxt1"></div>
+                </div>
+                <div class="input-field col s12">
+                    <label for="cemail">E-Mail *</label>
+                    <input id="cemail" type="email" name="cemail" data-error=".errorTxt2">
+                    <div class="errorTxt2"></div>
+                </div>
+                <div class="input-field col s12">
+                    <label for="password">Password *</label>
+                    <input id="password" type="password" name="password" data-error=".errorTxt3">
+                    <div class="errorTxt3"></div>
+                </div>
+                <div class="input-field col s12">
+                    <label for="cpassword">Confirm Password *</label>
+                    <input id="cpassword" type="password" name="cpassword" data-error=".errorTxt4">
+                    <div class="errorTxt4"></div>
+                </div>
+                <div class="input-field col s12">
+                    <label for="curl">URL *</label>
+                    <input id="curl" type="url" name="curl" data-error=".errorTxt5">
+                    <div class="errorTxt5"></div>
+                </div>
+                <div class="col s12">
+                    <label for="crole">Role *</label>
+                    <select class="error browser-default" id="crole" name="crole" data-error=".errorTxt6">
+                        <option value="" disabled="" selected="">Choose your profile</option>
+                        <option value="1">Manager</option>
+                        <option value="2">Developer</option>
+                        <option value="3">Business</option>
+                    </select>
+                    <div class="input-field">
+                        <div class="errorTxt6"></div>
+                    </div>
+                </div>
+                <div class="input-field col s12">
+                    <textarea id="ccomment" name="ccomment" class="materialize-textarea validate" data-error=".errorTxt7"></textarea>
+                    <label for="ccomment">Your comment *</label>
+                    <div class="errorTxt7"></div>
+                </div>
+                <div class="col s12">
+                    <label for="genter_select">Gender *</label>
+                    <p>
+                        <input name="cgender" type="radio" id="gender_male" data-error=".errorTxt8">
+                        <label for="gender_male">Male</label>
+                    </p>
+                    <p>
+                        <input name="cgender" type="radio" id="gender_female" value="f">
+                        <label for="gender_female">Female</label>
+                    </p>
+                    <div class="input-field">
+                        <div class="errorTxt8"></div>
+                    </div>
+                </div>
+                <div class="col s12">
+                    <label for="tnc_select">T&amp;C *</label>
+                    <p>
+                        <input type="checkbox" class="checkbox" id="cagree" name="cagree" data-error=".errorTxt9">
+                        <label for="cagree">Please agree to our policy</label>
+                    </p>
+                    <div class="input-field">
+                        <div class="errorTxt6"></div>
+                    </div>
+                </div>
+                <div class="input-field col s12">
+                    <button class="btn waves-effect waves-light right submit" type="submit" name="action">Submit
+                        <i class="mdi-content-send right"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
     </div>
 
-    <div data-name="smite" class="hide">
-        Campos smite: <input type="text" value=""><br>
-    </div>
+    <script>
+        $("#formValidate").validate({
+            rules: {
+                uname: {
+                    required: true,
+                    minlength: 5
+                },
+                cemail: {
+                    required: true,
+                    email:true
+                },
+                password: {
+                    required: true,
+                    minlength: 5
+                },
+                cpassword: {
+                    required: true,
+                    minlength: 5,
+                    equalTo: "#password"
+                },
+                curl: {
+                    required: true,
+                    url:true
+                },
+                crole:"required",
+                ccomment: {
+                    required: true,
+                    minlength: 15
+                },
+                cgender:"required",
+                cagree:"required",
+            },
+            //For custom messages
+            messages: {
+                uname:{
+                    required: "Enter a username",
+                    minlength: "Enter at least 5 characters"
+                },
+                curl: "Enter your website",
+            },
+            errorElement : 'div',
+            errorPlacement: function(error, element) {
+                var placement = $(element).data('error');
+                if (placement) {
+                    $(placement).append(error)
+                } else {
+                    error.insertAfter(element);
+                }
+            }
+        });
 
-    <div data-name="k-pop" class="hide">
-        Campos kpop: <input type="text" value=""><br>
-    </div>
+    </script>
 
-    <div data-name="bey-blade" class="hide">
-        campos bey-blade: <input type="text" value=""><br>
-    </div>
-
-    <div data-name="just-dance" class="hide">
-        just-dance: <input type="text" value=""><br>
-    </div>
-
-    <div data-name="quadribol" class="hide">
-        quadribol: <input type="text" value=""><br>
-    </div>
-
-    <div data-name="anime-quiz" class="hide">
-        anime quiz: <input type="text" value=""><br>
-    </div>
-
-    <div data-name="desenho" class="hide">
-        desenho: <input type="text" value=""><br>
-    </div>
-</form>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script type="text/javascript">
-	$("#selecionar").change(function() {
-    var $this, secao, atual, campos;
-  
-    campos = $("div[data-name]");
-    
-    campos.addClass("hide");
-
-    if (this.value !== "") {
-        secao = $('option[data-section][value="' + this.value + '"]', this).attr("data-section");
-      
-        atual = campos.filter("[data-name=" + secao + "]");
-      
-        if (atual.length !== 0) {
-            atual.removeClass("hide");
-        }
-    }
-});
-
-</script>
-</body>
-</html>
+@endsection
